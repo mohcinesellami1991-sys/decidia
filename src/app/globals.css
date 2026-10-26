@@ -111,3 +111,34 @@ body {
     background-position: -200% 0;
   }
 }
+
+/* ---------- Tokens complémentaires ---------- */
+:root {
+  --amber-line: #f0c97a;
+  --muted-2: #7d869a;
+}
+[data-theme="dark"] {
+  --amber-line: #5a4217;
+  --amber-soft: #251b0a;
+  --muted: #a9b1c3;
+  --muted-2: #7d869a;
+}
+@theme inline {
+  --color-amber-line: var(--amber-line);
+  --color-muted-2: var(--muted-2);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise {
+    from { opacity: 0.001; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes gauge-fill {
+    from { stroke-dashoffset: var(--gauge-len); }
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+}

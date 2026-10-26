@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Decidia — The AI that dares to say no",
+    "description": "Decidia analyses your decisions with the mental models of the best strategists and tells you the truth, even when it hurts."
+  },
+  "common": { "retry": "Try again", "back": "Back", "continue": "Continue", "skip": "Skip", "lang": "Français" },
+  "nav": { "why": "Why Decidia", "how": "How it works", "pricing": "Pricing", "faq": "FAQ", "login": "Log in", "cta": "Analyse my decision", "ctaShort": "Try it" },
+  "landing": {
+    "eyebrow": "Decision support for founders",
+    "h1a": "The AI that dares",
+    "h1b": "to say no.",
+    "lead": "Decidia analyses your decisions with the mental models of the best strategists and tells you the truth, even when it hurts.",
+    "cta": "Analyse my decision for free",
+    "small": "One free analysis, no sign-up. Report in under 3 minutes."
+  },
+  "pricing": { "eyebrow": "Pricing", "title": "One free analysis. The rest once you're convinced." },
+  "faq": { "eyebrow": "FAQ", "title": "What you're probably wondering." }
+}
