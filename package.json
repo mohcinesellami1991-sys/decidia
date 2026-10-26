@@ -9,8 +9,9 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "check": "npm run typecheck && npm run lint && npm run build",
-    "pdf:preview": "esbuild scripts/pdf-preview.tsx --bundle --platform=node --format=esm --packages=external --jsx=automatic --alias:@=./src --outfile=scripts/.pdf-preview.mjs --log-level=error && node scripts/.pdf-preview.mjs ./tmp-pdf && rm scripts/.pdf-preview.mjs"
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build",
+    "pdf:preview": "esbuild scripts/pdf-preview.tsx --bundle --platform=node --format=esm --packages=external --jsx=automatic --alias:@=./src --outfile=scripts/.pdf-preview.mjs --log-level=error && node scripts/.pdf-preview.mjs ./tmp-pdf && rm scripts/.pdf-preview.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.88",
@@ -43,13 +44,14 @@
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.28",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.0.5"
   }
 }
