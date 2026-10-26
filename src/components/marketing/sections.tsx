@@ -4,7 +4,8 @@ import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ConfidenceGauge } from "@/components/report/parts";
-import { SAMPLE_REPORT } from "@/lib/sample-report";
+import { getSample } from "@/lib/sample-report";
+import { getLocale } from "next-intl/server";
 import { PLANS } from "@/lib/stripe/plans";
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
@@ -91,7 +92,8 @@ export async function WhySection() {
 /* ---------- Démo de rapport ---------- */
 export async function DemoSection() {
   const t = await getTranslations("landing.demo");
-  const r = SAMPLE_REPORT;
+  const rt = await getTranslations("report");
+  const r = getSample(await getLocale()).report;
   return (
     <section className="pb-20 lg:pb-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -116,7 +118,7 @@ export async function DemoSection() {
               ))}
             </div>
             <div className="rounded-2xl border border-amber-line bg-amber-soft p-5 text-sm">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-amber">⚠ Avocat du diable</p>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-amber">⚠ {rt("devil")}</p>
               <p className="mt-2 text-muted">{r.devils_advocate.strongest_objection}</p>
             </div>
           </div>

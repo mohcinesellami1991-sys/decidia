@@ -74,3 +74,84 @@ export const SAMPLE_REPORT: Report = {
     "Quel est ton coût réel de livraison par colis ?",
   ],
 };
+
+export const SAMPLE_TITLE_EN = "Quit my job to launch an online coffee box";
+export const SAMPLE_PROBLEM_EN = "I want to quit my job in January to launch an online specialty coffee box. I have €12,000 in savings.";
+
+export const SAMPLE_REPORT_EN: Report = {
+  summary: "Not in January. Test first, quit later.",
+  diagnosis:
+    "The specialty coffee market exists, but you would be funding an unverified hypothesis with 100% of your savings. Validate demand with strangers while your salary still lands.",
+  models_used: [
+    { name: "Inversion", insight: "If you wanted this box to fail, quitting your job before knowing whether strangers will buy would do it." },
+    { name: "Opportunity cost", insight: "Quitting costs you 6 to 12 months of salary, not just your €12,000 in savings." },
+    { name: "Second-order thinking", insight: "With no income, you will accept customers and prices that damage the brand from day one." },
+    { name: "Survivorship bias", insight: "Founders who succeeded tell the story of their leap. The many who failed stay silent." },
+    { name: "Asymmetric bets", insight: "Testing costs little and can pay a lot. Betting everything costs everything for a comparable gain." },
+  ],
+  options: [
+    {
+      title: "A · Pre-sell 30 boxes while keeping your job",
+      pros: ["Almost no financial risk", "You measure real demand before committing"],
+      cons: ["Launch is 2 months slower", "Evening and weekend workload"],
+      confidence: 74,
+      risks: ["Fatigue", "Pre-orders coming only from people you know"],
+    },
+    {
+      title: "B · Quit in January and bet everything",
+      pros: ["Full-time from day one"],
+      cons: ["About 6 months of runway (assumption: €2,000 monthly spend)", "No test sales", "Pressure on every decision"],
+      confidence: 38,
+      risks: ["Cash runs out before the first wave of customers"],
+    },
+    {
+      title: "C · Go to 4 days a week and launch in parallel",
+      pros: ["One full day a week for the project", "80% of salary kept"],
+      cons: ["Depends on your employer agreeing"],
+      confidence: 61,
+      risks: ["Employer refuses", "Split focus between both jobs"],
+    },
+  ],
+  errc: {
+    eliminate: ["“Surprise” boxes at €30 that nobody finishes"],
+    reduce: ["Number of references: 2 coffees a month, not 6"],
+    raise: ["Traceability: roaster, altitude, roast date"],
+    create: ["A guided tasting sheet that teaches people how to taste"],
+  },
+  devils_advocate: {
+    strongest_objection:
+      "Pre-orders from people you know prove nothing. Friends buy out of kindness, not because the product meets a need.",
+    blind_spots: [
+      "You have not said where the first 30 customers will come from.",
+      "Online customer acquisition cost is not estimated in your numbers.",
+      "Shipping logistics (packaging, breakage, returns) may be underestimated.",
+    ],
+    verdict_change:
+      "If you already have a qualified audience (say 100 coffee newsletter subscribers), go for option C and move faster.",
+  },
+  recommendation: {
+    choice: "Option A, with a quantified decision threshold",
+    confidence: 64,
+    why: "Quit your job only if you reach 30 paid pre-orders from strangers at an acquisition cost under €12 per customer (assumption to verify). Assumptions to confirm: 45% gross margin, €24 average basket.",
+  },
+  action_plan: [
+    { step: "Build a simple pre-order page with payment", deadline: "D+7", success_metric: "Page live, payment tested" },
+    { step: "Contact 200 potential customers who don't know you", deadline: "D+21", success_metric: "At least 5% reply" },
+    { step: "Reach 30 paid pre-orders", deadline: "D+42", success_metric: "30 customers outside your close circle" },
+  ],
+  risks: [
+    { risk: "No demand beyond your circle", probability: "high", impact: "high", mitigation: "Paid test before any resignation" },
+    { risk: "Acquisition cost too high", probability: "medium", impact: "high", mitigation: "Hard ceiling of €12 per customer" },
+    { risk: "Supply disruption", probability: "low", impact: "medium", mitigation: "Two partner roasters" },
+  ],
+  followup_questions: [
+    "How many qualified people can you reach without ads?",
+    "What is your real shipping cost per parcel?",
+  ],
+};
+
+export function getSample(locale: string) {
+  return locale === "en"
+    ? { title: SAMPLE_TITLE_EN, problem: SAMPLE_PROBLEM_EN, report: SAMPLE_REPORT_EN, date: "26 Oct 2026" }
+    : { title: SAMPLE_TITLE, problem: SAMPLE_PROBLEM, report: SAMPLE_REPORT, date: "26 oct. 2026" };
+}

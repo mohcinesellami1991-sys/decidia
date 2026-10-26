@@ -59,9 +59,9 @@ test.describe("pages publiques", () => {
     await expect(submit).toBeEnabled();
   });
 
-  test("les routes protégées répondent 404 sans configuration Supabase", async ({ page }) => {
-    const res = await page.goto("/journal");
-    expect(res?.status()).toBe(404);
+  test("les routes protégées affichent la page 404 sans configuration Supabase", async ({ page }) => {
+    await page.goto("/journal");
+    await expect(page.getByRole("heading", { name: "Cette page n'existe pas." })).toBeVisible();
   });
 });
 
@@ -77,4 +77,11 @@ test.describe("accessibilité (axe, WCAG AA)", () => {
       });
     }
   }
+});
+
+test("l'exemple de rapport existe aussi en anglais", async ({ page }) => {
+  await page.goto("/en/exemple");
+  await expect(page.getByRole("heading", { name: "Blue Ocean grid" })).toBeVisible();
+  await expect(page.getByText("Devil's advocate").first()).toBeVisible();
+  await expect(page.getByRole("img", { name: /confidence 64/i })).toBeVisible();
 });

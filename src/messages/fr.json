@@ -39,16 +39,33 @@
     "small": "Une analyse offerte, sans inscription. Rapport en moins de 3 minutes.",
     "demoLabel": "Ta décision",
     "demoText": "Je veux quitter mon CDI en janvier pour lancer une box de café de spécialité en ligne. J'ai 12 000 € d'économies.",
-    "demoChips": ["Inversion", "Coût d'opportunité", "Océan Bleu", "Biais du survivant"],
+    "demoChips": [
+      "Inversion",
+      "Coût d'opportunité",
+      "Océan Bleu",
+      "Biais du survivant"
+    ],
     "demoNo": "NON",
     "demoNoText": "Pas en janvier. Avec 12 000 € et aucune vente test, tu finances une hypothèse, pas une entreprise.",
     "demoInstead": "PLUTÔT",
     "demoInsteadText": "Vendre 30 box en précommande d'ici 6 semaines, tout en gardant ton salaire.",
     "proof": [
-      { "k": "13", "v": "modèles mentaux" },
-      { "k": "2–3", "v": "questions de contexte" },
-      { "k": "J+14 / J+30", "v": "suivi du résultat" },
-      { "k": "ERRC", "v": "grille Océan Bleu" }
+      {
+        "k": "13",
+        "v": "modèles mentaux"
+      },
+      {
+        "k": "2–3",
+        "v": "questions de contexte"
+      },
+      {
+        "k": "J+14 / J+30",
+        "v": "suivi du résultat"
+      },
+      {
+        "k": "ERRC",
+        "v": "grille Océan Bleu"
+      }
     ],
     "why": {
       "eyebrow": "Pourquoi pas un chatbot générique",
@@ -56,10 +73,26 @@
       "sub": "Un assistant fait pour répondre est fait pour être d'accord. Une décision importante demande l'inverse.",
       "label": "Decidia",
       "cards": [
-        { "t": "Il dit oui à tout", "x": "« Super idée, voici comment la lancer ! »", "ok": "Il cherche ce qui peut casser et joue l'avocat du diable contre sa propre recommandation." },
-        { "t": "Des conseils génériques", "x": "« Étudie ton marché et fixe-toi des objectifs. »", "ok": "Il pose 2 ou 3 questions sur ton contexte, tes contraintes, ton objectif, puis personnalise." },
-        { "t": "Il oublie tout", "x": "Chaque conversation repart de zéro.", "ok": "Un journal garde chaque décision, ses hypothèses et ce qui s'est vraiment passé." },
-        { "t": "Il ne vérifie rien", "x": "Aucun suivi, aucune leçon.", "ok": "À J+14 et J+30, il te demande si ça a marché et ajuste le plan." }
+        {
+          "t": "Il dit oui à tout",
+          "x": "« Super idée, voici comment la lancer ! »",
+          "ok": "Il cherche ce qui peut casser et joue l'avocat du diable contre sa propre recommandation."
+        },
+        {
+          "t": "Des conseils génériques",
+          "x": "« Étudie ton marché et fixe-toi des objectifs. »",
+          "ok": "Il pose 2 ou 3 questions sur ton contexte, tes contraintes, ton objectif, puis personnalise."
+        },
+        {
+          "t": "Il oublie tout",
+          "x": "Chaque conversation repart de zéro.",
+          "ok": "Un journal garde chaque décision, ses hypothèses et ce qui s'est vraiment passé."
+        },
+        {
+          "t": "Il ne vérifie rien",
+          "x": "Aucun suivi, aucune leçon.",
+          "ok": "À J+14 et J+30, il te demande si ça a marché et ajuste le plan."
+        }
       ]
     },
     "demo": {
@@ -72,9 +105,24 @@
       "eyebrow": "Comment ça marche",
       "title": "De la question au plan d'action, en trois temps.",
       "steps": [
-        { "t": "Tu décris ton problème", "d": "Quelques lignes suffisent. Decidia te pose ensuite 2 ou 3 questions courtes, que tu peux passer.", "tags": [] },
-        { "t": "Il choisit les bons modèles", "d": "Inversion, second ordre, coût d'opportunité, grille Océan Bleu… puis il attaque sa propre conclusion.", "tags": ["3 à 5 modèles", "ERRC"] },
-        { "t": "Tu reçois un rapport franc", "d": "Options notées, risques chiffrés, plan daté. Puis un suivi pour mesurer ce qui s'est réellement passé.", "tags": [] }
+        {
+          "t": "Tu décris ton problème",
+          "d": "Quelques lignes suffisent. Decidia te pose ensuite 2 ou 3 questions courtes, que tu peux passer.",
+          "tags": []
+        },
+        {
+          "t": "Il choisit les bons modèles",
+          "d": "Inversion, second ordre, coût d'opportunité, grille Océan Bleu… puis il attaque sa propre conclusion.",
+          "tags": [
+            "3 à 5 modèles",
+            "ERRC"
+          ]
+        },
+        {
+          "t": "Tu reçois un rapport franc",
+          "d": "Options notées, risques chiffrés, plan daté. Puis un suivi pour mesurer ce qui s'est réellement passé.",
+          "tags": []
+        }
       ],
       "step": "Étape"
     },
@@ -82,11 +130,26 @@
       "eyebrow": "Ce qui change tout",
       "title": "Cinq raisons de lui faire confiance.",
       "items": [
-        { "t": "Honnêteté", "d": "Il challenge tes hypothèses au lieu de les valider." },
-        { "t": "Personnalisation", "d": "Des questions de contexte et ton profil guident chaque analyse." },
-        { "t": "Mémoire", "d": "Ton journal de décisions garde le fil, d'une décision à l'autre." },
-        { "t": "Rigueur", "d": "Un score de confiance justifié et des risques chiffrés, avec leurs hypothèses." },
-        { "t": "Résultat", "d": "Il suit ce qui s'est passé à J+14 et J+30, puis ajuste le plan." }
+        {
+          "t": "Honnêteté",
+          "d": "Il challenge tes hypothèses au lieu de les valider."
+        },
+        {
+          "t": "Personnalisation",
+          "d": "Des questions de contexte et ton profil guident chaque analyse."
+        },
+        {
+          "t": "Mémoire",
+          "d": "Ton journal de décisions garde le fil, d'une décision à l'autre."
+        },
+        {
+          "t": "Rigueur",
+          "d": "Un score de confiance justifié et des risques chiffrés, avec leurs hypothèses."
+        },
+        {
+          "t": "Résultat",
+          "d": "Il suit ce qui s'est passé à J+14 et J+30, puis ajuste le plan."
+        }
       ]
     },
     "waitlist": {
@@ -109,7 +172,11 @@
     "free": {
       "name": "Gratuit",
       "price": "0 €",
-      "features": ["1 analyse sans inscription", "Rapport complet à l'écran", "Sauvegarde avec un compte"],
+      "features": [
+        "1 analyse sans inscription",
+        "Rapport complet à l'écran",
+        "Sauvegarde avec un compte"
+      ],
       "cta": "Essayer maintenant"
     },
     "pro": {
@@ -118,7 +185,13 @@
       "price": "29 €",
       "per": "/ mois",
       "founder": "Tarif fondateur : 19 €/mois à vie pour les 100 premiers.",
-      "features": ["Analyses illimitées (usage raisonnable)", "Grille Océan Bleu et avocat du diable", "Journal de décisions", "Export PDF du rapport", "Suivi J+14 / J+30"],
+      "features": [
+        "Analyses illimitées (usage raisonnable)",
+        "Grille Océan Bleu et avocat du diable",
+        "Journal de décisions",
+        "Export PDF du rapport",
+        "Suivi J+14 / J+30"
+      ],
       "cta": "Passer à Pro",
       "ctaWait": "Réserver mon tarif"
     }
@@ -127,12 +200,30 @@
     "eyebrow": "Questions fréquentes",
     "title": "Ce que tu te demandes sûrement.",
     "items": [
-      { "q": "Decidia remplace-t-il un expert ?", "a": "Non. C'est une aide à la décision, pas un conseil juridique, financier ou médical. Sur ces sujets, il t'envoie vers un professionnel." },
-      { "q": "Que deviennent mes données ?", "a": "Elles restent privées et protégées par des règles d'accès strictes. Tu peux les exporter ou supprimer ton compte à tout moment depuis les réglages." },
-      { "q": "Pourquoi répond-il parfois « non » ?", "a": "Parce qu'il est réglé pour chercher la faille avant de te rassurer. Quand l'idée est mauvaise, il l'écrit et explique pourquoi." },
-      { "q": "Les chiffres sont-ils fiables ?", "a": "Il n'invente aucun chiffre. Chaque estimation est marquée comme une hypothèse que tu peux corriger." },
-      { "q": "Je peux résilier quand je veux ?", "a": "Oui, en deux clics depuis le portail d'abonnement. Pas d'engagement." },
-      { "q": "À qui s'adresse Decidia ?", "a": "Aux entrepreneurs qui doivent trancher : lancer, recruter, pivoter, investir, arrêter. D'autres profils arriveront ensuite." }
+      {
+        "q": "Decidia remplace-t-il un expert ?",
+        "a": "Non. C'est une aide à la décision, pas un conseil juridique, financier ou médical. Sur ces sujets, il t'envoie vers un professionnel."
+      },
+      {
+        "q": "Que deviennent mes données ?",
+        "a": "Elles restent privées et protégées par des règles d'accès strictes. Tu peux les exporter ou supprimer ton compte à tout moment depuis les réglages."
+      },
+      {
+        "q": "Pourquoi répond-il parfois « non » ?",
+        "a": "Parce qu'il est réglé pour chercher la faille avant de te rassurer. Quand l'idée est mauvaise, il l'écrit et explique pourquoi."
+      },
+      {
+        "q": "Les chiffres sont-ils fiables ?",
+        "a": "Il n'invente aucun chiffre. Chaque estimation est marquée comme une hypothèse que tu peux corriger."
+      },
+      {
+        "q": "Je peux résilier quand je veux ?",
+        "a": "Oui, en deux clics depuis le portail d'abonnement. Pas d'engagement."
+      },
+      {
+        "q": "À qui s'adresse Decidia ?",
+        "a": "Aux entrepreneurs qui doivent trancher : lancer, recruter, pivoter, investir, arrêter. D'autres profils arriveront ensuite."
+      }
     ]
   },
   "footer": {
@@ -158,7 +249,11 @@
     "sub": "Décris la situation en quelques lignes. Plus tu es précis, plus Decidia peut te contredire utilement.",
     "placeholder": "Ex. : Je veux quitter mon CDI pour lancer mon activité. J'ai 12 000 € d'économies…",
     "persona": "Ton profil",
-    "personas": { "entrepreneur": "Entrepreneur", "individual": "Particulier", "manager": "Manager" },
+    "personas": {
+      "entrepreneur": "Entrepreneur",
+      "individual": "Particulier",
+      "manager": "Manager"
+    },
     "examplesLabel": "Ou pars d'un exemple",
     "examples": [
       "Dois-je recruter mon premier salarié ou continuer seul ?",
@@ -225,8 +320,16 @@
     "probability": "Probabilité",
     "impact": "Impact",
     "mitigation": "Parade",
-    "levels": { "low": "Faible", "medium": "Moyenne", "high": "Élevée" },
-    "impacts": { "low": "Faible", "medium": "Moyen", "high": "Fort" },
+    "levels": {
+      "low": "Faible",
+      "medium": "Moyenne",
+      "high": "Élevée"
+    },
+    "impacts": {
+      "low": "Faible",
+      "medium": "Moyen",
+      "high": "Fort"
+    },
     "followupQuestions": "À vérifier avant de te lancer",
     "exportPdf": "Exporter en PDF",
     "saveJournal": "Enregistrer dans mon journal",
@@ -240,13 +343,29 @@
     "paywallTitle": "Ta décision suivante mérite la même rigueur.",
     "paywallSub": "Ton analyse gratuite est utilisée. Passe à Pro pour des analyses illimitées, le journal, le PDF et le suivi.",
     "paywallCta": "Passer à Pro · 29 €/mois",
-    "paywallPoints": ["Analyses illimitées (usage raisonnable)", "Journal de décisions et suivi J+14 / J+30", "Export PDF du rapport"]
+    "paywallPoints": [
+      "Analyses illimitées (usage raisonnable)",
+      "Journal de décisions et suivi J+14 / J+30",
+      "Export PDF du rapport"
+    ]
   },
   "journal": {
     "title": "Journal de décisions",
     "sub": "Tout ce que tu as décidé, et ce qui s'est vraiment passé.",
-    "filters": { "all": "Toutes", "open": "En cours", "success": "Réussies", "failed": "Ratées" },
-    "status": { "draft": "Brouillon", "analyzed": "Analysée", "decided": "En cours", "success": "Réussie", "partial": "Partielle", "failed": "Ratée" },
+    "filters": {
+      "all": "Toutes",
+      "open": "En cours",
+      "success": "Réussies",
+      "failed": "Ratées"
+    },
+    "status": {
+      "draft": "Brouillon",
+      "analyzed": "Analysée",
+      "decided": "En cours",
+      "success": "Réussie",
+      "partial": "Partielle",
+      "failed": "Ratée"
+    },
     "emptyTitle": "Aucune décision pour l'instant",
     "emptyText": "Ta première analyse apparaîtra ici, avec son suivi.",
     "emptyCta": "Nouvelle analyse",
@@ -258,7 +377,11 @@
   "followup": {
     "title": "Ta décision a-t-elle marché ?",
     "sub": "Dis-moi ce qui s'est réellement passé. Je compare avec mon analyse et j'ajuste le plan.",
-    "outcomes": { "success": "Oui, ça a marché", "partial": "En partie", "failed": "Non, c'est raté" },
+    "outcomes": {
+      "success": "Oui, ça a marché",
+      "partial": "En partie",
+      "failed": "Non, c'est raté"
+    },
     "notes": "Ce qui s'est passé, en quelques mots",
     "notesPlaceholder": "Ex. : 12 précommandes en 5 semaines, surtout dans mon entourage…",
     "send": "Envoyer",
@@ -284,7 +407,9 @@
     "delete": "Supprimer mon compte",
     "deleteSub": "Efface définitivement ton compte et toutes tes décisions. Cette action est irréversible.",
     "deleteConfirm": "Oui, supprimer définitivement",
-    "saved": "Enregistré."
+    "saved": "Enregistré.",
+    "checkoutSuccess": "Merci. Ton abonnement Pro est en cours d'activation.",
+    "founder": "Fondateur"
   },
   "legal": {
     "privacyTitle": "Politique de confidentialité",
@@ -299,5 +424,15 @@
     "body": "Il y a quelques semaines, tu as analysé « {title} ». Dis-moi ce qui s'est passé : ça prend une minute, et j'ajusterai ton plan.",
     "cta": "Faire le point",
     "footer": "Decidia est une aide à la décision, pas un conseil juridique, financier ou médical."
+  },
+  "errors": {
+    "notFoundTitle": "Cette page n'existe pas.",
+    "notFoundText": "Le lien est peut-être périmé. Reprends depuis l'accueil.",
+    "home": "Retour à l'accueil",
+    "unexpected": "Une erreur inattendue s'est produite. Ton travail n'est pas perdu.",
+    "checkoutFailed": "Impossible d'ouvrir le paiement. Réessaie dans un instant.",
+    "actionFailed": "Action indisponible pour le moment. Réessaie dans un instant.",
+    "deleteFailed": "La suppression a échoué. Réessaie ou contacte le support.",
+    "followupFailed": "L'ajustement a échoué. Tes réponses sont conservées."
   }
 }

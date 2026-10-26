@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/shared/site-footer";
 import { ReportView } from "@/components/report/report-view";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/lib/i18n/navigation";
-import { SAMPLE_PROBLEM, SAMPLE_REPORT, SAMPLE_TITLE } from "@/lib/sample-report";
+import { getSample } from "@/lib/sample-report";
 
 export const metadata: Metadata = { title: "Exemple de rapport" };
 
@@ -13,16 +13,17 @@ export default async function ExamplePage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("landing");
+  const sample = getSample(locale);
   return (
     <>
       <SiteHeader />
       <main id="main">
         <ReportView
-          title={SAMPLE_TITLE}
-          problem={SAMPLE_PROBLEM}
-          dateLabel="26 oct. 2026"
+          title={sample.title}
+          problem={sample.problem}
+          dateLabel={sample.date}
           persona="entrepreneur"
-          report={SAMPLE_REPORT}
+          report={sample.report}
           actions={
             <div className="rounded-3xl border border-border bg-surface p-7 text-center">
               <p className="font-serif text-3xl">{t("cta")}</p>

@@ -23,6 +23,7 @@ export function SignupWall({ next }: { next: string }) {
 
 export function PaywallCard() {
   const t = useTranslations("wall");
+  const e = useTranslations("errors");
   const [loading, setLoading] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -51,7 +52,7 @@ export function PaywallCard() {
         ))}
       </ul>
       <Button size="lg" className="mt-6" onClick={checkout} disabled={loading}>{t("paywallCta")}</Button>
-      {failed && <p role="alert" className="mt-3 text-sm text-danger">Impossible d&apos;ouvrir le paiement. Réessaie dans un instant.</p>}
+      {failed && <p role="alert" className="mt-3 text-sm text-danger">{e("checkoutFailed")}</p>}
     </aside>
   );
 }

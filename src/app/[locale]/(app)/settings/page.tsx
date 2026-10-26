@@ -23,7 +23,7 @@ export default async function SettingsPage({ params, searchParams }: { params: P
     <div className="mx-auto grid max-w-2xl gap-12 px-4 py-12 sm:px-6">
       <h1 className="font-serif text-5xl leading-tight">{t("title")}</h1>
 
-      {checkout === "success" && <p role="status" className="rounded-xl border border-success/40 bg-success-soft p-4 text-sm text-success">Merci. Ton abonnement Pro est en cours d&apos;activation.</p>}
+      {checkout === "success" && <p role="status" className="rounded-xl border border-success/40 bg-success-soft p-4 text-sm text-success">{t("checkoutSuccess")}</p>}
 
       <section aria-labelledby="s-profile" className="grid gap-5">
         <h2 id="s-profile" className="font-serif text-3xl">{t("profile")}</h2>
@@ -35,7 +35,7 @@ export default async function SettingsPage({ params, searchParams }: { params: P
         <h2 id="s-plan" className="font-serif text-3xl">{t("plan")}</h2>
         <p className="flex items-center gap-2.5">
           <Badge tone={viewer.plan === "free" ? "neutral" : "ocean"}>{viewer.plan === "free" ? t("planFree") : t("planPro")}</Badge>
-          {viewer.isFounder && <Badge tone="amber">Fondateur</Badge>}
+          {viewer.isFounder && <Badge tone="amber">{t("founder")}</Badge>}
         </p>
         <BillingActions plan={viewer.plan} />
       </section>

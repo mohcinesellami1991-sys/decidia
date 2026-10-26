@@ -49,6 +49,7 @@ export function ProfileForm({ userId, fullName, persona }: { userId: string; ful
 
 export function BillingActions({ plan }: { plan: "free" | "pro" | "team" }) {
   const t = useTranslations("settings");
+  const e = useTranslations("errors");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -75,7 +76,7 @@ export function BillingActions({ plan }: { plan: "free" | "pro" | "team" }) {
           <Button variant="secondary" onClick={() => go("/api/stripe/portal")} disabled={loading}>{t("manage")}</Button>
         )}
       </div>
-      {error && <p role="alert" className="text-sm text-danger">Action indisponible pour le moment. Réessaie dans un instant.</p>}
+      {error && <p role="alert" className="text-sm text-danger">{e("actionFailed")}</p>}
     </div>
   );
 }
@@ -83,6 +84,7 @@ export function BillingActions({ plan }: { plan: "free" | "pro" | "team" }) {
 export function DataActions() {
   const t = useTranslations("settings");
   const c = useTranslations("common");
+  const e = useTranslations("errors");
   const [confirming, setConfirming] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
@@ -115,7 +117,7 @@ export function DataActions() {
             <Button variant="ghost" onClick={() => setConfirming(false)} disabled={busy}>{c("cancel")}</Button>
           </div>
         )}
-        {error && <p role="alert" className="mt-3 text-sm text-danger">La suppression a échoué. Réessaie ou contacte le support.</p>}
+        {error && <p role="alert" className="mt-3 text-sm text-danger">{e("deleteFailed")}</p>}
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ const OUTCOMES = ["success", "partial", "failed"] as const;
 
 export function FollowupForm({ decisionId, initial }: { decisionId: string; initial: FollowupAdjustment | null }) {
   const t = useTranslations("followup");
+  const e = useTranslations("errors");
   const [outcome, setOutcome] = useState<(typeof OUTCOMES)[number] | null>(null);
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
@@ -66,7 +67,7 @@ export function FollowupForm({ decisionId, initial }: { decisionId: string; init
         <label htmlFor="notes" className="font-mono text-xs uppercase tracking-widest text-muted-2">{t("notes")}</label>
         <Textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={2000} placeholder={t("notesPlaceholder")} />
       </div>
-      {failed && <ErrorState description="L'ajustement a échoué. Tes réponses sont conservées." onRetry={() => setFailed(false)} />}
+      {failed && <ErrorState description={e("followupFailed")} onRetry={() => setFailed(false)} />}
       <div><Button type="submit" size="lg" disabled={!outcome || loading}>{loading && <Loader2 className="animate-spin" />} {t("send")}</Button></div>
     </form>
   );

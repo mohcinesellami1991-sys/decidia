@@ -3,16 +3,428 @@
     "title": "Decidia — The AI that dares to say no",
     "description": "Decidia analyses your decisions with the mental models of the best strategists and tells you the truth, even when it hurts."
   },
-  "common": { "retry": "Try again", "back": "Back", "continue": "Continue", "skip": "Skip", "lang": "Français" },
-  "nav": { "why": "Why Decidia", "how": "How it works", "pricing": "Pricing", "faq": "FAQ", "login": "Log in", "cta": "Analyse my decision", "ctaShort": "Try it" },
+  "common": {
+    "retry": "Try again",
+    "back": "Back",
+    "continue": "Continue",
+    "skip": "Skip",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "disclaimer": "Decidia is a decision aid, not legal, financial or medical advice.",
+    "theme": "Switch theme",
+    "lang": "Français"
+  },
+  "nav": {
+    "why": "Why Decidia",
+    "how": "How it works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "login": "Log in",
+    "journal": "Journal",
+    "new": "New analysis",
+    "settings": "Settings",
+    "logout": "Log out",
+    "cta": "Analyse my decision",
+    "ctaShort": "Try it"
+  },
   "landing": {
     "eyebrow": "Decision support for founders",
     "h1a": "The AI that dares",
     "h1b": "to say no.",
     "lead": "Decidia analyses your decisions with the mental models of the best strategists and tells you the truth, even when it hurts.",
     "cta": "Analyse my decision for free",
-    "small": "One free analysis, no sign-up. Report in under 3 minutes."
+    "ctaSecondary": "See a sample report",
+    "small": "One free analysis, no sign-up. Report in under 3 minutes.",
+    "demoLabel": "Your decision",
+    "demoText": "I want to quit my job in January to launch an online specialty coffee box. I have €12,000 in savings.",
+    "demoChips": [
+      "Inversion",
+      "Opportunity cost",
+      "Blue Ocean",
+      "Survivorship bias"
+    ],
+    "demoNo": "NO",
+    "demoNoText": "Not in January. With €12,000 and no test sales, you are funding a hypothesis, not a business.",
+    "demoInstead": "INSTEAD",
+    "demoInsteadText": "Pre-sell 30 boxes within 6 weeks while keeping your salary.",
+    "proof": [
+      {
+        "k": "13",
+        "v": "mental models"
+      },
+      {
+        "k": "2–3",
+        "v": "context questions"
+      },
+      {
+        "k": "D+14 / D+30",
+        "v": "outcome follow-up"
+      },
+      {
+        "k": "ERRC",
+        "v": "Blue Ocean grid"
+      }
+    ],
+    "why": {
+      "eyebrow": "Why not a generic chatbot",
+      "title": "ChatGPT congratulates you. Decidia contradicts you.",
+      "sub": "An assistant built to answer is built to agree. An important decision needs the opposite.",
+      "label": "Decidia",
+      "cards": [
+        {
+          "t": "It says yes to everything",
+          "x": "“Great idea, here's how to launch it!”",
+          "ok": "It looks for what could break and plays devil's advocate against its own recommendation."
+        },
+        {
+          "t": "Generic advice",
+          "x": "“Research your market and set goals.”",
+          "ok": "It asks 2 or 3 questions about your context, constraints and goal, then personalises."
+        },
+        {
+          "t": "It forgets everything",
+          "x": "Every conversation starts from zero.",
+          "ok": "A journal keeps every decision, its assumptions and what actually happened."
+        },
+        {
+          "t": "It checks nothing",
+          "x": "No follow-up, no lesson.",
+          "ok": "At D+14 and D+30 it asks whether it worked and adjusts the plan."
+        }
+      ]
+    },
+    "demo": {
+      "eyebrow": "A real report",
+      "title": "What you get, in three minutes.",
+      "sub": "Diagnosis, scored options, Blue Ocean grid, devil's advocate, dated plan, quantified risks.",
+      "cta": "Open the full example"
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "From question to action plan, in three steps.",
+      "steps": [
+        {
+          "t": "You describe your problem",
+          "d": "A few lines are enough. Decidia then asks 2 or 3 short questions, which you can skip.",
+          "tags": []
+        },
+        {
+          "t": "It picks the right models",
+          "d": "Inversion, second-order thinking, opportunity cost, Blue Ocean grid… then it attacks its own conclusion.",
+          "tags": [
+            "3 to 5 models",
+            "ERRC"
+          ]
+        },
+        {
+          "t": "You get a frank report",
+          "d": "Scored options, quantified risks, dated plan. Then a follow-up to measure what really happened.",
+          "tags": []
+        }
+      ],
+      "step": "Step"
+    },
+    "diff": {
+      "eyebrow": "What changes everything",
+      "title": "Five reasons to trust it.",
+      "items": [
+        {
+          "t": "Honesty",
+          "d": "It challenges your assumptions instead of validating them."
+        },
+        {
+          "t": "Personalisation",
+          "d": "Context questions and your profile shape every analysis."
+        },
+        {
+          "t": "Memory",
+          "d": "Your decision journal keeps the thread from one decision to the next."
+        },
+        {
+          "t": "Rigour",
+          "d": "A justified confidence score and quantified risks, with their assumptions."
+        },
+        {
+          "t": "Results",
+          "d": "It tracks what happened at D+14 and D+30, then adjusts the plan."
+        }
+      ]
+    },
+    "waitlist": {
+      "eyebrow": "Founder offer",
+      "title": "The first 100 keep their price for life.",
+      "sub": "Leave your email. You will be told at launch, before anyone else.",
+      "label": "Your email",
+      "placeholder": "you@company.com",
+      "consent": "I agree to receive one email at launch. I can unsubscribe at any time.",
+      "cta": "Join the list",
+      "note": "No spam. One email at launch.",
+      "done": "Noted. Your founder spot is reserved.",
+      "already": "You are already on the list. Nothing more to do.",
+      "error": "Sign-up failed. Check your email and try again."
+    }
   },
-  "pricing": { "eyebrow": "Pricing", "title": "One free analysis. The rest once you're convinced." },
-  "faq": { "eyebrow": "FAQ", "title": "What you're probably wondering." }
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "One free analysis. The rest once you're convinced.",
+    "free": {
+      "name": "Free",
+      "price": "€0",
+      "features": [
+        "1 analysis without signing up",
+        "Full report on screen",
+        "Save with an account"
+      ],
+      "cta": "Try it now"
+    },
+    "pro": {
+      "name": "Pro",
+      "tag": "Founder offer · 100 spots",
+      "price": "€29",
+      "per": "/ month",
+      "founder": "Founder price: €19/month for life for the first 100.",
+      "features": [
+        "Unlimited analyses (fair use)",
+        "Blue Ocean grid and devil's advocate",
+        "Decision journal",
+        "PDF export",
+        "D+14 / D+30 follow-up"
+      ],
+      "cta": "Go Pro",
+      "ctaWait": "Reserve my price"
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "What you're probably wondering.",
+    "items": [
+      {
+        "q": "Does Decidia replace an expert?",
+        "a": "No. It is a decision aid, not legal, financial or medical advice. On those topics it points you to a professional."
+      },
+      {
+        "q": "What happens to my data?",
+        "a": "It stays private, protected by strict access rules. You can export it or delete your account at any time from settings."
+      },
+      {
+        "q": "Why does it sometimes say “no”?",
+        "a": "Because it is tuned to look for the flaw before reassuring you. When the idea is bad, it says so and explains why."
+      },
+      {
+        "q": "Are the numbers reliable?",
+        "a": "It never invents figures. Every estimate is marked as an assumption you can correct."
+      },
+      {
+        "q": "Can I cancel any time?",
+        "a": "Yes, in two clicks from the billing portal. No commitment."
+      },
+      {
+        "q": "Who is Decidia for?",
+        "a": "Founders who have to decide: launch, hire, pivot, invest, stop. Other profiles will follow."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "© 2026 Decidia",
+    "privacy": "Privacy",
+    "legal": "Legal notice",
+    "terms": "Terms"
+  },
+  "auth": {
+    "title": "Log in",
+    "sub": "Get a magic link by email, or continue with Google.",
+    "email": "Your email",
+    "send": "Send me the link",
+    "sent": "Link sent. Open your inbox and click it.",
+    "google": "Continue with Google",
+    "or": "or",
+    "error": "Could not send the link. Check the address and try again.",
+    "consent": "By continuing, you accept the terms and the privacy policy.",
+    "notConfigured": "Authentication is not configured on this environment yet."
+  },
+  "new": {
+    "title": "Which decision is holding you back?",
+    "sub": "Describe the situation in a few lines. The more precise you are, the more usefully Decidia can contradict you.",
+    "placeholder": "E.g. I want to quit my job to launch my business. I have €12,000 in savings…",
+    "persona": "Your profile",
+    "personas": {
+      "entrepreneur": "Founder",
+      "individual": "Individual",
+      "manager": "Manager"
+    },
+    "examplesLabel": "Or start from an example",
+    "examples": [
+      "Should I hire my first employee or keep going solo?",
+      "I want to quit my job to launch an online coffee box.",
+      "Should I cut my prices to beat a cheaper competitor?",
+      "My product has stalled for 6 months: pivot or persist?"
+    ],
+    "minChars": "A few more words, 20 characters minimum.",
+    "cta": "Analyse my decision",
+    "freeLeft": "Your first analysis is free.",
+    "outOfScope": "This question belongs with a professional (doctor, lawyer…). Decidia cannot help here.",
+    "limit": "Too many requests in a row. Try again in a few minutes."
+  },
+  "analysis": {
+    "contextTitle": "Two or three questions to understand you better",
+    "questionOf": "Question {n} of {total}",
+    "answerPlaceholder": "Short answer…",
+    "example": "Example",
+    "generating": "Preparing my questions…",
+    "start": "Run the analysis",
+    "progress": [
+      "Identifying the right mental models…",
+      "Testing your idea with inversion…",
+      "Applying the Blue Ocean grid…",
+      "Playing devil's advocate against myself…",
+      "Writing your recommendation…",
+      "Quantifying risks and the action plan…"
+    ],
+    "progressTitle": "Analysis in progress",
+    "progressSub": "It takes about a minute. You can keep this tab open.",
+    "failed": "The analysis was interrupted. Your answers are saved.",
+    "notFound": "This analysis could not be found."
+  },
+  "report": {
+    "report": "Report",
+    "profile": "Profile",
+    "verdict": "Verdict",
+    "confidence": "confidence",
+    "diagnosis": "Diagnosis",
+    "models": "Models applied",
+    "modelsSub": "Tap a model to see what it revealed.",
+    "options": "The options",
+    "optionsSub": "Every confidence score is justified.",
+    "pros": "Pros",
+    "cons": "Cons",
+    "risks": "Risks",
+    "errc": "Blue Ocean grid",
+    "errcSub": "Where to differentiate instead of copying what exists.",
+    "eliminate": "Eliminate",
+    "reduce": "Reduce",
+    "raise": "Raise",
+    "create": "Create",
+    "devil": "Devil's advocate",
+    "strongest": "The strongest objection",
+    "blind": "Blind spots",
+    "verdictChange": "What would change my mind",
+    "reco": "Recommendation",
+    "plan": "Action plan",
+    "planSub": "Tick as you go. Decidia will come back to ask where you stand.",
+    "metric": "Metric",
+    "riskTable": "Risk table",
+    "riskSub": "Probabilities are assumptions, not measurements.",
+    "risk": "Risk",
+    "probability": "Probability",
+    "impact": "Impact",
+    "mitigation": "Mitigation",
+    "levels": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "impacts": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "followupQuestions": "To check before you commit",
+    "exportPdf": "Export as PDF",
+    "saveJournal": "Save to my journal",
+    "markDecided": "I've decided",
+    "ofMax": "out of 100"
+  },
+  "wall": {
+    "signupTitle": "Keep this report.",
+    "signupSub": "Create your free account to save it, export it and track your result.",
+    "signupCta": "Create my account",
+    "paywallTitle": "Your next decision deserves the same rigour.",
+    "paywallSub": "Your free analysis is used. Go Pro for unlimited analyses, the journal, PDF and follow-up.",
+    "paywallCta": "Go Pro · €29/month",
+    "paywallPoints": [
+      "Unlimited analyses (fair use)",
+      "Decision journal and D+14 / D+30 follow-up",
+      "PDF export of the report"
+    ]
+  },
+  "journal": {
+    "title": "Decision journal",
+    "sub": "Everything you decided, and what really happened.",
+    "filters": {
+      "all": "All",
+      "open": "In progress",
+      "success": "Successful",
+      "failed": "Failed"
+    },
+    "status": {
+      "draft": "Draft",
+      "analyzed": "Analysed",
+      "decided": "In progress",
+      "success": "Successful",
+      "partial": "Partial",
+      "failed": "Failed"
+    },
+    "emptyTitle": "No decisions yet",
+    "emptyText": "Your first analysis will appear here, with its follow-up.",
+    "emptyCta": "New analysis",
+    "confidence": "Confidence",
+    "created": "Created on",
+    "open": "Open",
+    "followup": "Check in"
+  },
+  "followup": {
+    "title": "Did your decision work?",
+    "sub": "Tell me what really happened. I compare it with my analysis and adjust the plan.",
+    "outcomes": {
+      "success": "Yes, it worked",
+      "partial": "Partly",
+      "failed": "No, it failed"
+    },
+    "notes": "What happened, in a few words",
+    "notesPlaceholder": "E.g. 12 pre-orders in 5 weeks, mostly from people I know…",
+    "send": "Send",
+    "gap": "Gap analysis",
+    "lesson": "Lesson learned",
+    "adjusted": "Adjusted plan",
+    "thanks": "Thank you. Here is what I take from it.",
+    "alreadyDone": "You already did this check-in. Here is the result."
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "name": "Name",
+    "persona": "Default profile",
+    "plan": "Subscription",
+    "planFree": "Free",
+    "planPro": "Pro",
+    "manage": "Manage my subscription",
+    "upgrade": "Go Pro",
+    "data": "Your data",
+    "export": "Export my data",
+    "exportSub": "A JSON file with your decisions, reports and follow-ups.",
+    "delete": "Delete my account",
+    "deleteSub": "Permanently erases your account and all your decisions. This cannot be undone.",
+    "deleteConfirm": "Yes, delete permanently",
+    "saved": "Saved.",
+    "checkoutSuccess": "Thank you. Your Pro subscription is being activated.",
+    "founder": "Founder"
+  },
+  "legal": {
+    "privacyTitle": "Privacy policy",
+    "termsTitle": "Terms of use",
+    "legalTitle": "Legal notice",
+    "updated": "Last updated: 26 October 2026"
+  },
+  "errors": {
+    "notFoundTitle": "This page doesn't exist.",
+    "notFoundText": "The link may be outdated. Start again from the home page.",
+    "home": "Back to home",
+    "unexpected": "An unexpected error occurred. Your work is not lost.",
+    "checkoutFailed": "Could not open the payment page. Try again in a moment.",
+    "actionFailed": "Action unavailable right now. Try again in a moment.",
+    "deleteFailed": "Deletion failed. Try again or contact support.",
+    "followupFailed": "The adjustment failed. Your answers are saved."
+  }
 }

@@ -39,6 +39,7 @@ const stepFor = (p: PartialReport) => {
 
 export function AnalysisFlow(props: FlowProps) {
   const t = useTranslations("analysis");
+  const c = useTranslations("common");
   const [stage, setStage] = useState<"questions" | "running" | "report" | "error" | "signup" | "paywall">(props.report ? "report" : "questions");
   const [answers, setAnswers] = useState(props.questions.map((q) => q.answer));
   const [idx, setIdx] = useState(0);
@@ -127,9 +128,9 @@ export function AnalysisFlow(props: FlowProps) {
               placeholder={t("answerPlaceholder")} className="h-14 rounded-xl text-lg"
             />
             <div className="flex flex-wrap items-center gap-3">
-              <Button type="submit" size="lg">{last ? t("start") : "Continuer"} →</Button>
-              <Button type="button" variant="ghost" onClick={() => { setAnswers((a) => a.map((v, i) => (i === idx ? "" : v))); next(); }}>Passer</Button>
-              {idx > 0 && <Button type="button" variant="ghost" onClick={() => setIdx(idx - 1)}><ArrowLeft />Retour</Button>}
+              <Button type="submit" size="lg">{last ? t("start") : c("continue")} →</Button>
+              <Button type="button" variant="ghost" onClick={() => { setAnswers((a) => a.map((v, i) => (i === idx ? "" : v))); next(); }}>{c("skip")}</Button>
+              {idx > 0 && <Button type="button" variant="ghost" onClick={() => setIdx(idx - 1)}><ArrowLeft />{c("back")}</Button>}
             </div>
           </motion.form>
         </AnimatePresence>
