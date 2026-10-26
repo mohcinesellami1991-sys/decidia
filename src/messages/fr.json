@@ -434,5 +434,11 @@
     "actionFailed": "Action indisponible pour le moment. Réessaie dans un instant.",
     "deleteFailed": "La suppression a échoué. Réessaie ou contacte le support.",
     "followupFailed": "L'ajustement a échoué. Tes réponses sont conservées."
+  },
+  "consent": {
+    "text": "Decidia mesure l'audience avec PostHog pour améliorer le produit. Aucun texte de décision n'y est envoyé. Tu peux refuser sans rien perdre.",
+    "accept": "Accepter",
+    "refuse": "Refuser",
+    "label": "Mesure d'audience"
   }
 }

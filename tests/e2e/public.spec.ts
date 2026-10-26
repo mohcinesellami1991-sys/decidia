@@ -92,3 +92,19 @@ test("un visiteur non connecté ne voit pas Journal ni Réglages sur /new", asyn
   await expect(page.getByRole("link", { name: "Journal" })).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Tarifs" })).toBeVisible();
 });
+
+test.describe("consentement à la mesure d'audience", () => {
+  test.skip(!process.env.E2E_WITH_POSTHOG, "nécessite un build avec NEXT_PUBLIC_POSTHOG_KEY");
+
+  test("la bannière apparaît, se ferme et mémorise le choix", async ({ page }) => {
+    await page.goto("/");
+    const banner = page.getByRole("region", { name: "Mesure d'audience" });
+    await expect(banner).toBeVisible();
+    const results = await new AxeBuilder({ page: page as never }).withTags(["wcag2a", "wcag2aa"]).analyze();
+    expect(results.violations.map((v) => v.id)).toEqual([]);
+    await banner.getByRole("button", { name: "Refuser" }).click();
+    await expect(banner).toBeHidden();
+    await page.reload();
+    await expect(page.getByRole("region", { name: "Mesure d'audience" })).toHaveCount(0);
+  });
+});

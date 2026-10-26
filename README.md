@@ -40,7 +40,7 @@ Vérifications : `npm run check` (typecheck + lint + build) puis `npm run test:e
 Vérifie le domaine d'envoi, crée la clé API, renseigne `EMAIL_FROM`.
 
 ### 5. PostHog
-Renseigne `NEXT_PUBLIC_POSTHOG_KEY`. Évènements du funnel : `analysis_started`, `questions_answered`, `report_viewed`, `signup_wall_shown`, `paywall_shown`, `checkout_started`, `waitlist_joined`. Aucun évènement n'est envoyé si le navigateur envoie Do Not Track.
+Renseigne `NEXT_PUBLIC_POSTHOG_KEY`. Évènements du funnel : `analysis_started`, `questions_answered`, `report_viewed`, `signup_wall_shown`, `paywall_shown`, `checkout_started`, `waitlist_joined`. Rien n'est chargé sans consentement : une bannière demande l'accord, et aucun évènement n'est envoyé si le navigateur envoie Do Not Track.
 
 ## Architecture
 

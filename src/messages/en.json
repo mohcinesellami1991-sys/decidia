@@ -426,5 +426,11 @@
     "actionFailed": "Action unavailable right now. Try again in a moment.",
     "deleteFailed": "Deletion failed. Try again or contact support.",
     "followupFailed": "The adjustment failed. Your answers are saved."
+  },
+  "consent": {
+    "text": "Decidia measures audience with PostHog to improve the product. No decision text is sent. You can decline without losing anything.",
+    "accept": "Accept",
+    "refuse": "Decline",
+    "label": "Analytics"
   }
 }
