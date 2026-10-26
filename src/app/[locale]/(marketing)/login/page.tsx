@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/shared/site-header";
 import { LoginForm } from "@/components/app/login-form";
+import { supabaseConfigured } from "@/lib/supabase/config";
 
 export const metadata: Metadata = { title: "Connexion", robots: { index: false } };
 
@@ -11,7 +12,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
   const { next, error } = await searchParams;
   const t = await getTranslations("auth");
   const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : "/journal";
-  const configured = Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  const configured = supabaseConfigured();
   return (
     <>
       <SiteHeader />
