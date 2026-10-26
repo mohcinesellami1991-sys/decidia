@@ -5,7 +5,8 @@ import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/shared/states";
-import { createAdmin } from "@/lib/supabase/server";
+import { notFound } from "next/navigation";
+import { createAdmin, hasSupabase } from "@/lib/supabase/server";
 import { getViewer, type DecisionRow } from "@/lib/db";
 import { cn } from "@/lib/utils";
 
@@ -19,14 +20,16 @@ const TONE = { draft: "neutral", analyzed: "ocean", decided: "ocean", success: "
 export default async function JournalPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ f?: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  if (!hasSupabase()) notFound();
   const { f } = await searchParams;
   const filter: Filter = FILTERS.includes(f as Filter) ? (f as Filter) : "all";
   const t = await getTranslations("journal");
   const viewer = await getViewer();
+  if (!viewer.userId) notFound();
   const lang = (await getLocale()) === "en" ? "en-GB" : "fr-FR";
 
   const admin = createAdmin();
-  let q = admin.from("decisions").select("*").eq("user_id", viewer.userId!).neq("status", "draft").order("created_at", { ascending: false });
+  let q = admin.from("decisions").select("*").eq("user_id", viewer.userId).neq("status", "draft").order("created_at", { ascending: false });
   if (filter === "open") q = q.in("status", OPEN);
   if (filter === "success") q = q.in("status", ["success", "partial"]);
   if (filter === "failed") q = q.eq("status", "failed");
