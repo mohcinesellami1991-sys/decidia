@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ConfidenceGauge } from "@/components/report/parts";
+import { StaticGauge } from "@/components/report/parts";
 import { getSample } from "@/lib/sample-report";
 import { getLocale } from "next-intl/server";
 import { PLANS } from "@/lib/stripe/plans";
@@ -106,7 +106,7 @@ export async function DemoSection() {
           </div>
           <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4" aria-hidden>
             <div className="flex min-w-0 items-center gap-4 rounded-2xl border border-border bg-background p-4 sm:gap-5 sm:p-5">
-              <ConfidenceGauge value={r.recommendation.confidence} size={96} />
+              <StaticGauge value={r.recommendation.confidence} size={96} label={rt("confidence")} />
               <p className="min-w-0 font-serif text-xl leading-tight sm:text-2xl">{r.summary}</p>
             </div>
             <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-2.5 rounded-2xl border border-border bg-background p-4 sm:p-5">

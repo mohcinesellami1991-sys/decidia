@@ -9,7 +9,7 @@ import { AnalyticsProvider } from "@/components/shared/analytics";
 import "../globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], preload: false });
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
@@ -44,7 +44,12 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const all = (await getMessages()) as Record<string, unknown>;
+  // Les textes de la landing, des tarifs, de la FAQ et des pages légales ne servent qu'au serveur :
+  // on n'envoie au navigateur que ce que les composants clients lisent.
+  const { meta: _m, pricing: _p, faq: _f, footer: _ft, legal: _l, email: _e, landing, ...clientMessages } = all as Record<string, never>;
+  void _m; void _p; void _f; void _ft; void _l; void _e;
+  const messages = { ...clientMessages, landing: { waitlist: (landing as { waitlist: unknown }).waitlist } };
 
   return (
     <html lang={locale} suppressHydrationWarning>
