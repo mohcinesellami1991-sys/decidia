@@ -10,9 +10,9 @@ export async function SiteHeader({ signedIn = false, variant = "marketing" }: { 
   return (
     <header className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
-        <Logo href={variant === "app" ? "/journal" : "/"} />
+        <Logo href={variant === "app" && signedIn ? "/journal" : "/"} />
         <nav aria-label="Principal" className="ml-6 hidden items-center gap-1 text-sm text-muted md:flex">
-          {variant === "marketing" ? (
+          {variant === "marketing" || !signedIn ? (
             <>
               <Link className="rounded-md px-3 py-1.5 hover:text-foreground" href="/#why">{t("why")}</Link>
               <Link className="rounded-md px-3 py-1.5 hover:text-foreground" href="/#how">{t("how")}</Link>

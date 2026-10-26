@@ -85,3 +85,10 @@ test("l'exemple de rapport existe aussi en anglais", async ({ page }) => {
   await expect(page.getByText("Devil's advocate").first()).toBeVisible();
   await expect(page.getByRole("img", { name: /confidence 64/i })).toBeVisible();
 });
+
+test("un visiteur non connecté ne voit pas Journal ni Réglages sur /new", async ({ page, isMobile }) => {
+  test.skip(isMobile, "navigation masquée sur mobile");
+  await page.goto("/new");
+  await expect(page.getByRole("link", { name: "Journal" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Tarifs" })).toBeVisible();
+});
