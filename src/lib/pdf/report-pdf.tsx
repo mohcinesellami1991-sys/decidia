@@ -16,7 +16,7 @@ const s = StyleSheet.create({
   bar: { height: 4, backgroundColor: "#eef1f7", borderRadius: 2, marginTop: 6 },
   barFill: { height: 4, backgroundColor: C.blue, borderRadius: 2 },
   grid: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
-  cell: { width: "48.5%", borderWidth: 1, borderColor: C.line, borderRadius: 8, padding: 10 },
+  cell: { borderWidth: 1, borderColor: C.line, borderRadius: 8, padding: 10 },
   devil: { backgroundColor: C.amberBg, borderWidth: 1, borderColor: C.amberLine, borderRadius: 8, padding: 12 },
   th: { fontSize: 8, color: C.ink3, textTransform: "uppercase" },
   tr: { flexDirection: "row", borderBottomWidth: 1, borderBottomColor: C.line, paddingVertical: 5 },
@@ -59,22 +59,27 @@ export function ReportPdf({ title, date, report, locale = "fr" }: { title: strin
         <Text style={[s.eyebrow, { marginTop: 14 }]}>{t.report} · {date}</Text>
         <Text style={s.h1}>{title}</Text>
         <View style={[s.card, { borderColor: C.blue }]}>
-          <View style={s.row}>
-            <Text style={{ fontFamily: "Times-Roman", fontSize: 15, flex: 1, paddingRight: 12 }}>{report.summary}</Text>
-            <Text style={{ fontFamily: "Times-Roman", fontSize: 26, color: C.blue }}>{report.recommendation.confidence}<Text style={{ fontSize: 9, color: C.ink3 }}> /100 {t.confidence}</Text></Text>
+          <View style={{ flexDirection: "row", alignItems: "flex-start" }}>
+            <View style={{ flex: 1, paddingRight: 16 }}>
+              <Text style={{ fontFamily: "Times-Roman", fontSize: 16, lineHeight: 1.25 }}>{report.summary}</Text>
+              <Text style={[s.p, { marginTop: 6 }]}>{report.diagnosis}</Text>
+            </View>
+            <View style={{ width: 84, alignItems: "flex-end" }}>
+              <Text style={{ fontFamily: "Times-Roman", fontSize: 30, color: C.blue, lineHeight: 1 }}>{report.recommendation.confidence}</Text>
+              <Text style={{ fontSize: 7.5, color: C.ink3, textTransform: "uppercase", letterSpacing: 0.6 }}>/100 {t.confidence}</Text>
+            </View>
           </View>
-          <Text style={[s.p, { marginTop: 6 }]}>{report.diagnosis}</Text>
         </View>
 
         <View style={s.section}>
-          <Text style={s.h2}>{t.models}</Text>
+          <Text style={s.h2} minPresenceAhead={70}>{t.models}</Text>
           {report.models_used.map((m, i) => (
             <Text key={i} style={s.bullet}><Text style={{ fontFamily: "Helvetica-Bold", color: C.ink }}>{m.name}. </Text>{m.insight}</Text>
           ))}
         </View>
 
         <View style={s.section}>
-          <Text style={s.h2}>{t.options}</Text>
+          <Text style={s.h2} minPresenceAhead={70}>{t.options}</Text>
           {report.options.map((o, i) => (
             <View key={i} style={s.card} wrap={false}>
               <View style={s.row}>
@@ -93,11 +98,13 @@ export function ReportPdf({ title, date, report, locale = "fr" }: { title: strin
         {hasErrc && (
           <View style={s.section} wrap={false}>
             <Text style={s.h2}>{t.errc}</Text>
-            <View style={s.grid}>
-              {([["e", "eliminate"], ["r", "reduce"], ["a", "raise"], ["c", "create"]] as const).map(([k, key]) => (
-                <View key={k} style={s.cell}><Text style={s.eyebrow}>{t[k]}</Text><List items={report.errc[key]} /></View>
-              ))}
-            </View>
+            {([[["e", "eliminate"], ["r", "reduce"]], [["a", "raise"], ["c", "create"]]] as const).map((row, i) => (
+              <View key={i} style={{ flexDirection: "row", marginBottom: 8 }}>
+                {row.map(([k, key], j) => (
+                  <View key={k} style={[s.cell, { flex: 1, marginLeft: j === 0 ? 0 : 8 }]}><Text style={s.eyebrow}>{t[k]}</Text><List items={report.errc[key]} /></View>
+                ))}
+              </View>
+            ))}
           </View>
         )}
 
@@ -118,26 +125,34 @@ export function ReportPdf({ title, date, report, locale = "fr" }: { title: strin
         </View>
 
         <View style={s.section}>
-          <Text style={s.h2}>{t.plan}</Text>
           {report.action_plan.map((a, i) => (
-            <View key={i} style={s.card} wrap={false}>
-              <View style={s.row}><Text style={{ flex: 1 }}>☐ {a.step}</Text><Text style={{ color: C.ink3 }}>{a.deadline}</Text></View>
-              <Text style={{ color: C.ink3, fontSize: 9, marginTop: 2 }}>{t.metric} : {a.success_metric}</Text>
+            <View key={i} wrap={false}>
+              {i === 0 && <Text style={s.h2}>{t.plan}</Text>}
+              <View style={s.card}>
+                <View style={s.row}><Text style={{ flex: 1 }}>[  ] {a.step}</Text><Text style={{ color: C.ink3 }}>{a.deadline}</Text></View>
+                <Text style={{ color: C.ink3, fontSize: 9, marginTop: 2 }}>{t.metric} : {a.success_metric}</Text>
+              </View>
             </View>
           ))}
         </View>
 
         <View style={s.section}>
-          <Text style={s.h2}>{t.risks}</Text>
-          <View style={s.tr}>
-            {[t.risk, t.prob, t.impact, t.mit].map((h, i) => <Text key={i} style={[s.th, { flex: i === 0 || i === 3 ? 2 : 1 }]}>{h}</Text>)}
-          </View>
           {report.risks.map((r, i) => (
-            <View key={i} style={s.tr} wrap={false}>
-              <Text style={{ flex: 2 }}>{r.risk}</Text>
-              <Text style={{ flex: 1 }}>{t.lv[r.probability]}</Text>
-              <Text style={{ flex: 1 }}>{t.im[r.impact]}</Text>
-              <Text style={{ flex: 2, color: C.ink2 }}>{r.mitigation}</Text>
+            <View key={i} wrap={false}>
+              {i === 0 && (
+                <>
+                  <Text style={s.h2}>{t.risks}</Text>
+                  <View style={s.tr}>
+                    {[t.risk, t.prob, t.impact, t.mit].map((h, k) => <Text key={k} style={[s.th, { flex: k === 0 || k === 3 ? 2 : 1 }]}>{h}</Text>)}
+                  </View>
+                </>
+              )}
+              <View style={s.tr}>
+                <Text style={{ flex: 2 }}>{r.risk}</Text>
+                <Text style={{ flex: 1 }}>{t.lv[r.probability]}</Text>
+                <Text style={{ flex: 1 }}>{t.im[r.impact]}</Text>
+                <Text style={{ flex: 2, color: C.ink2 }}>{r.mitigation}</Text>
+              </View>
             </View>
           ))}
         </View>

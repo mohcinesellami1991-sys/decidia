@@ -36,7 +36,6 @@ export default async function AnalysisPage({ params }: { params: Promise<{ local
       report={latest?.report ?? null}
       status={decision.status}
       viewer={{ signedIn: Boolean(viewer.userId), paid: isPaid(viewer) }}
-      freeUsed={Boolean(latest)}
     />
   );
 }

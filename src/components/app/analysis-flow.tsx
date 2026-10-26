@@ -25,8 +25,6 @@ export interface FlowProps {
   report: Report | null;
   status: string;
   viewer: { signedIn: boolean; paid: boolean };
-  /** L'analyse gratuite de ce compte est déjà consommée par ce rapport. */
-  freeUsed: boolean;
 }
 
 const KEY_STEP: [keyof Report, number][] = [
@@ -188,7 +186,7 @@ export function AnalysisFlow(props: FlowProps) {
   );
 }
 
-function ReportActions({ decisionId, viewer, freeUsed, status }: FlowProps) {
+function ReportActions({ decisionId, viewer, status }: FlowProps) {
   const r = useTranslations("report");
   const [marked, setMarked] = useState(status !== "analyzed" && status !== "draft");
 
@@ -216,7 +214,7 @@ function ReportActions({ decisionId, viewer, freeUsed, status }: FlowProps) {
         ) : null}
       </div>
       {!viewer.signedIn && <SignupWall next={`/analysis/${decisionId}`} />}
-      {viewer.signedIn && !viewer.paid && freeUsed && <PaywallCard />}
+      {viewer.signedIn && !viewer.paid && <PaywallCard />}
     </div>
   );
 }

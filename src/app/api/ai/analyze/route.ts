@@ -1,6 +1,6 @@
 import { createAdmin, hasSupabase } from "@/lib/supabase/server";
 import { ipHash } from "@/lib/anon";
-import { getOwnedDecision, getViewer, logUsage, scheduleFollowups } from "@/lib/db";
+import { getAnswers, getOwnedDecision, getViewer, logUsage, scheduleFollowups } from "@/lib/db";
 import { canStartAnalysis, rateLimit } from "@/lib/limits";
 import { runAnalysis } from "@/lib/ai";
 import { AnswersInput } from "@/lib/ai/schemas";
@@ -28,10 +28,12 @@ export async function POST(req: Request) {
   if (!gate.ok) return json({ error: gate.reason }, 402);
 
   const admin = createAdmin();
-  const answers = parsed.data.answers;
+  // Les questions viennent de la base (jamais du navigateur) ; seules les réponses sont reprises du client.
+  const stored = await getAnswers(decision.id);
+  const answers = stored.map((q, i) => ({ question: q.question, answer: (parsed.data.answers[i]?.answer ?? "").trim() }));
   await Promise.all(
     answers.map((a, i) =>
-      admin.from("context_answers").update({ answer: a.answer }).eq("decision_id", decision.id).eq("position", i),
+      admin.from("context_answers").update({ answer: a.answer }).eq("decision_id", decision.id).eq("position", stored[i].position),
     ),
   );
 
