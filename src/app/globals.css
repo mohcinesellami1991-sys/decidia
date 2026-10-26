@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Tokens Decidia ---------- */
+:root {
+  --background: #f7f8fb;
+  --surface: #ffffff;
+  --surface-2: #eef1f7;
+  --border: #dde2ec;
+  --foreground: #0b0d12;
+  --muted: #5a6275;
+  --ocean-from: #2f6bff;
+  --ocean-to: #00c2ff;
+  --primary: #1f55e0; /* AA sur fond clair */
+  --primary-foreground: #ffffff;
+  --amber: #b7791f; /* texte AA sur clair */
+  --amber-soft: #fff4de;
+  --success: #15803d;
+  --success-soft: #e3f7ea;
+  --danger: #c0392b;
+  --ring: #2f6bff;
+  --radius: 0.75rem;
+}
+
+[data-theme="dark"] {
+  --background: #0b0d12;
+  --surface: #12151c;
+  --surface-2: #1a1e28;
+  --border: #262b38;
+  --foreground: #eef1f7;
+  --muted: #9aa3b5;
+  --primary: #5b8aff;
+  --primary-foreground: #0b0d12;
+  --amber: #f5a524;
+  --amber-soft: #2a2010;
+  --success: #22c55e;
+  --success-soft: #0f2a1a;
+  --danger: #f87171;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ocean-from: var(--ocean-from);
+  --color-ocean-to: var(--ocean-to);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility bg-ocean {
+  background-image: linear-gradient(135deg, var(--ocean-from), var(--ocean-to));
+}
+
+@utility text-ocean {
+  background-image: linear-gradient(135deg, var(--ocean-from), var(--ocean-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
