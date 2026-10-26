@@ -5,7 +5,7 @@ import { canStartAnalysis, rateLimit } from "@/lib/limits";
 import { runAnalysis } from "@/lib/ai";
 import { AnswersInput } from "@/lib/ai/schemas";
 
-export const maxDuration = 120;
+export const maxDuration = 300;
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });

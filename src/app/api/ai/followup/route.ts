@@ -6,7 +6,7 @@ import { getLatestReport, getOwnedDecision, getViewer, logUsage } from "@/lib/db
 import { rateLimit } from "@/lib/limits";
 import { runFollowup } from "@/lib/ai";
 
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 const Input = z.object({
   decisionId: z.string().uuid(),

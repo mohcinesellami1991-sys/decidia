@@ -40,7 +40,8 @@ export function computeUsage(kind: keyof typeof PRICE, inTok = 0, outTok = 0): U
   };
 }
 
-const MAX_TOKENS = { questions: 700, analysis: 5000, followup: 1800 };
+// Marge large : un rapport complet en français peut dépasser 4 500 tokens ; une coupure rendrait le JSON invalide.
+const MAX_TOKENS = { questions: 800, analysis: 8000, followup: 2200 };
 const wrap = (label: string, text: string) => `<${label}>\n${text}\n</${label}>`;
 
 function sum(a: Usage, b: Usage): Usage {
