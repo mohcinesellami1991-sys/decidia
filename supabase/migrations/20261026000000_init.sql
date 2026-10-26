@@ -94,16 +94,26 @@ create table public.waitlist (
 );
 create unique index waitlist_email_idx on public.waitlist (lower(email));
 
--- Profil créé automatiquement à l'inscription
+-- Profil créé automatiquement à l'inscription. Ne doit jamais faire échouer une inscription
+-- (le projet peut servir à d'autres applications) : toute erreur est ignorée.
 create function public.handle_new_user() returns trigger
 language plpgsql security definer set search_path = public as $$
 begin
   insert into public.profiles (id, email, full_name)
-  values (new.id, new.email, coalesce(new.raw_user_meta_data ->> 'full_name', new.raw_user_meta_data ->> 'name'));
+  values (new.id, coalesce(new.email, ''), coalesce(new.raw_user_meta_data ->> 'full_name', new.raw_user_meta_data ->> 'name'))
+  on conflict (id) do nothing;
+  return new;
+exception when others then
   return new;
 end $$;
 create trigger on_auth_user_created after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- Comptes déjà existants
+insert into public.profiles (id, email, full_name)
+select id, coalesce(email, ''), coalesce(raw_user_meta_data ->> 'full_name', raw_user_meta_data ->> 'name')
+from auth.users
+on conflict (id) do nothing;
 
 -- ---------- RLS : chaque utilisateur ne voit que ses lignes ----------
 alter table public.profiles enable row level security;
@@ -135,3 +145,6 @@ create policy reports_select_own on public.reports for select
 create policy followups_select_own on public.followups for select
   using (exists (select 1 from public.decisions d where d.id = decision_id and d.user_id = auth.uid()));
 create policy usage_select_own on public.usage_events for select using (user_id = auth.uid());
+
+-- La fonction du déclencheur n'a pas à être appelable via l'API.
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
