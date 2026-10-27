@@ -70,10 +70,10 @@ export async function getAnswers(decisionId: string) {
   const admin = createAdmin();
   const { data } = await admin
     .from("context_answers")
-    .select("question, answer, position")
+    .select("question, answer, example, position")
     .eq("decision_id", decisionId)
     .order("position");
-  return (data ?? []) as { question: string; answer: string; position: number }[];
+  return (data ?? []) as { question: string; answer: string; example: string; position: number }[];
 }
 
 /** Rattache les analyses anonymes au compte fraîchement créé et planifie leurs suivis. */

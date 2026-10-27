@@ -40,6 +40,7 @@ create table public.context_answers (
   decision_id uuid not null references public.decisions(id) on delete cascade,
   question text not null,
   answer text not null default '',
+  example text not null default '',
   position int not null default 0
 );
 create index context_answers_decision_idx on public.context_answers (decision_id);

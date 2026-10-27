@@ -49,7 +49,7 @@ export async function POST(req: Request) {
 
   if (data.questions.length) {
     await admin.from("context_answers").insert(
-      data.questions.map((q, i) => ({ decision_id: decision.id, question: q.question, answer: "", position: i })),
+      data.questions.map((q, i) => ({ decision_id: decision.id, question: q.question, example: q.example, answer: "", position: i })),
     );
   }
   return NextResponse.json({ inScope: true, decisionId: decision.id, questions: data.questions });

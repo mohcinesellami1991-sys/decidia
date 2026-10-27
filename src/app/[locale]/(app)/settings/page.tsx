@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { BillingActions, DataActions, ProfileForm } from "@/components/app/settings-forms";
-import { Badge } from "@/components/ui/badge";
+import { setRequestLocale } from "next-intl/server";
+import { SettingsView } from "@/components/app/settings-view";
 import { createAdmin, hasSupabase } from "@/lib/supabase/server";
 import { getViewer } from "@/lib/db";
 
@@ -15,35 +14,17 @@ export default async function SettingsPage({ params, searchParams }: { params: P
   const viewer = await getViewer();
   if (!viewer.userId) notFound();
   const { checkout } = await searchParams;
-  const t = await getTranslations("settings");
-
   const { data: profile } = await createAdmin().from("profiles").select("full_name, persona").eq("id", viewer.userId).single();
 
   return (
-    <div className="mx-auto grid max-w-2xl gap-12 px-4 py-12 sm:px-6">
-      <h1 className="font-serif text-5xl leading-tight">{t("title")}</h1>
-
-      {checkout === "success" && <p role="status" className="rounded-xl border border-success/40 bg-success-soft p-4 text-sm text-success">{t("checkoutSuccess")}</p>}
-
-      <section aria-labelledby="s-profile" className="grid gap-5">
-        <h2 id="s-profile" className="font-serif text-3xl">{t("profile")}</h2>
-        <p className="text-sm text-muted-2">{viewer.email}</p>
-        <ProfileForm userId={viewer.userId} fullName={profile?.full_name ?? ""} persona={profile?.persona ?? "entrepreneur"} />
-      </section>
-
-      <section aria-labelledby="s-plan" className="grid gap-4">
-        <h2 id="s-plan" className="font-serif text-3xl">{t("plan")}</h2>
-        <p className="flex items-center gap-2.5">
-          <Badge tone={viewer.plan === "free" ? "neutral" : "ocean"}>{viewer.plan === "free" ? t("planFree") : t("planPro")}</Badge>
-          {viewer.isFounder && <Badge tone="amber">{t("founder")}</Badge>}
-        </p>
-        <BillingActions plan={viewer.plan} />
-      </section>
-
-      <section aria-labelledby="s-data" className="grid gap-5">
-        <h2 id="s-data" className="font-serif text-3xl">{t("data")}</h2>
-        <DataActions />
-      </section>
-    </div>
+    <SettingsView
+      userId={viewer.userId}
+      email={viewer.email}
+      fullName={profile?.full_name ?? ""}
+      persona={profile?.persona ?? "entrepreneur"}
+      plan={viewer.plan}
+      isFounder={viewer.isFounder}
+      checkout={checkout}
+    />
   );
 }

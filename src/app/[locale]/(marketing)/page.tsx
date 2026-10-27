@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/shared/site-header";
 import { SiteFooter } from "@/components/shared/site-footer";
-import { DemoSection, DiffSection, FaqSection, Hero, HowSection, PricingSection, WhySection } from "@/components/marketing/sections";
+import { DemoSection, DiffSection, ErrcSection, FaqSection, Hero, HowSection, ModelsSection, PricingSection, WhySection } from "@/components/marketing/sections";
 import { WaitlistForm } from "@/components/marketing/waitlist-form";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,6 +17,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <WhySection />
         <DemoSection />
         <HowSection />
+        <ModelsSection />
+        <ErrcSection />
         <DiffSection />
         <PricingSection />
         <FaqSection />

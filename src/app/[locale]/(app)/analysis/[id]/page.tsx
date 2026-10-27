@@ -32,7 +32,7 @@ export default async function AnalysisPage({ params }: { params: Promise<{ local
       problem={decision.problem_text}
       persona={decision.persona}
       dateLabel={date}
-      questions={answers.map((a) => ({ question: a.question, answer: a.answer }))}
+      questions={answers.map((a) => ({ question: a.question, answer: a.answer, example: a.example }))}
       report={latest?.report ?? null}
       status={decision.status}
       viewer={{ signedIn: Boolean(viewer.userId), paid: isPaid(viewer) }}

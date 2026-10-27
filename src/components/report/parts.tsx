@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Checkbox } from "@/components/ui/checkbox";
 import type { Report } from "@/lib/ai/schemas";
 
 export type Partial2<T> = { [K in keyof T]?: T[K] extends (infer U)[] ? Partial2<U>[] : T[K] extends object ? Partial2<T[K]> : T[K] };
@@ -104,7 +105,7 @@ export function MentalModelChip({ name, active, onClick }: { name: string; activ
       onClick={onClick}
       className={cn(
         "rounded-full border px-3.5 py-1.5 text-[13px] transition-colors duration-150",
-        active ? "border-primary/50 bg-primary/20 text-primary" : "border-primary/30 bg-primary/10 text-primary hover:bg-primary/20",
+        active ? "border-transparent bg-primary text-primary-foreground shadow-sm" : "border-primary/30 bg-primary/10 text-primary hover:bg-primary/20",
       )}
     >
       {name}
@@ -153,7 +154,7 @@ export function ERRCGrid({ errc }: { errc: Partial2<Report["errc"]> }) {
     { key: "eliminate", label: t("eliminate"), tone: "text-danger" },
     { key: "reduce", label: t("reduce"), tone: "text-muted" },
     { key: "raise", label: t("raise"), tone: "text-primary" },
-    { key: "create", label: t("create"), tone: "text-[var(--ocean-to)]" },
+    { key: "create", label: t("create"), tone: "text-accent-cyan" },
   ] as const;
   return (
     <div className="grid gap-3 sm:grid-cols-2">
@@ -233,7 +234,7 @@ export function ActionPlan({ steps, storageKey }: { steps: Partial2<Report["acti
       {steps.filter((s) => s.step).map((s, i) => (
         <li key={i} className="rounded-xl border border-border bg-surface">
           <label className="grid cursor-pointer grid-cols-[auto_1fr_auto] items-start gap-3.5 p-4">
-            <input type="checkbox" checked={Boolean(done[i])} onChange={() => toggle(i)} className="mt-0.5 size-5 accent-[#2f6bff]" />
+            <Checkbox checked={Boolean(done[i])} onChange={() => toggle(i)} className="mt-0.5" />
             <span>
               <span className={cn("text-[15px]", done[i] && "text-muted-2 line-through")}>{s.step}</span>
               {s.success_metric && <span className="mt-0.5 block text-[13px] text-muted-2">{t("metric")} : {s.success_metric}</span>}

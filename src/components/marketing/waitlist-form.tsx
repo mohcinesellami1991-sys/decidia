@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 import { track } from "@/components/shared/analytics";
 
 export function WaitlistForm() {
@@ -41,7 +42,7 @@ export function WaitlistForm() {
       <Input id="wl-email" name="email" type="email" required autoComplete="email" placeholder={t("placeholder")} className="h-12 text-base" />
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <label className="flex items-start gap-2.5 text-[13px] text-muted">
-        <input name="consent" type="checkbox" required className="mt-0.5 size-4 accent-[#2f6bff]" />
+        <Checkbox name="consent" required className="mt-0.5" />
         {t("consent")}
       </label>
       <Button type="submit" size="lg" disabled={state === "loading"}>{t("cta")}</Button>

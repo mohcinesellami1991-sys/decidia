@@ -9,6 +9,8 @@ export default defineConfig({
   reporter: [["list"]],
   use: {
     baseURL: `http://localhost:${port}`,
+    // Animations d'entrée désactivées : les mesures de contraste se font sur l'état final (et ce chemin « mouvement réduit » est ainsi testé).
+    contextOptions: { reducedMotion: "reduce" },
     launchOptions: process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {},
   },
   projects: [
@@ -18,7 +20,8 @@ export default defineConfig({
   webServer: {
     command: `npx next start -p ${port}`,
     url: `http://localhost:${port}`,
-    reuseExistingServer: true,
+    reuseExistingServer: false,
+    env: { ENABLE_PREVIEW: "1" },
     timeout: 60_000,
   },
 });

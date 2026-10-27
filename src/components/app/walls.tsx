@@ -48,7 +48,7 @@ export function PaywallCard() {
       <p className="mt-2 max-w-[36em] text-muted">{t("paywallSub")}</p>
       <ul className="mt-5 grid gap-2 text-[15px] text-muted">
         {(t.raw("paywallPoints") as string[]).map((p) => (
-          <li key={p} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-[var(--ocean-to)]" />{p}</li>
+          <li key={p} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-accent-cyan" />{p}</li>
         ))}
       </ul>
       <Button size="lg" className="mt-6" onClick={checkout} disabled={loading}>{t("paywallCta")}</Button>

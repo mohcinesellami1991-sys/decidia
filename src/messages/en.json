@@ -164,6 +164,101 @@
       "done": "Noted. Your founder spot is reserved.",
       "already": "You are already on the list. Nothing more to do.",
       "error": "Sign-up failed. Check your email and try again."
+    },
+    "points": [
+      "No sign-up",
+      "Report in under 3 minutes",
+      "No credit card"
+    ],
+    "demoProfile": "Founder profile",
+    "demoMeta": "3 options · 5 models · 3 risks",
+    "demoDevil": "Devil's advocate",
+    "demoDevilText": "Pre-orders from friends prove nothing: they buy out of kindness.",
+    "models": {
+      "eyebrow": "The method",
+      "title": "Thirteen mental models. Three to five picked for your case.",
+      "sub": "Decidia doesn't throw the whole toolbox at you: it selects the models that truly illuminate your decision, and tells you which it used and why.",
+      "items": [
+        {
+          "n": "First principles",
+          "d": "Break down to basic facts, then rebuild without copying habits."
+        },
+        {
+          "n": "Inversion",
+          "d": "Look for what would make the project fail, to avoid it."
+        },
+        {
+          "n": "Second-order thinking",
+          "d": "Look at the consequences of the consequences, not just the immediate effect."
+        },
+        {
+          "n": "Opportunity cost",
+          "d": "Measure what you give up by choosing this option."
+        },
+        {
+          "n": "Circle of competence",
+          "d": "Stay where you truly know, and know where it ends."
+        },
+        {
+          "n": "Asymmetric bets",
+          "d": "Little to lose, a lot to gain: favour those bets."
+        },
+        {
+          "n": "Regret minimisation",
+          "d": "Choose what you will regret least in ten years."
+        },
+        {
+          "n": "Pareto",
+          "d": "20% of actions produce 80% of the result: find which ones."
+        },
+        {
+          "n": "Leverage",
+          "d": "What multiplies your effort: tools, people, capital, audience."
+        },
+        {
+          "n": "The map is not the territory",
+          "d": "Your model of the situation is not the situation."
+        },
+        {
+          "n": "Confirmation bias",
+          "d": "We mostly look for what confirms what we already believe."
+        },
+        {
+          "n": "Survivorship bias",
+          "d": "We only see those who succeeded, never those who failed."
+        },
+        {
+          "n": "Hanlon's razor",
+          "d": "Don't attribute to malice what error is enough to explain."
+        }
+      ],
+      "tile": {
+        "t": "Decidia picks three to five for you.",
+        "cta": "See how, on a real report"
+      }
+    },
+    "errc": {
+      "eyebrow": "Blue Ocean strategy",
+      "title": "Stop fighting in the red ocean.",
+      "sub": "For founders, Decidia applies the ERRC grid from Blue Ocean strategy: instead of copying what exists, you choose what to eliminate, reduce, raise and create to step out of the comparison.",
+      "cells": [
+        {
+          "k": "Eliminate",
+          "q": "Which factors your industry takes for granted can you remove?"
+        },
+        {
+          "k": "Reduce",
+          "q": "Which can you bring well below the industry standard?"
+        },
+        {
+          "k": "Raise",
+          "q": "Which can you push well above the industry standard?"
+        },
+        {
+          "k": "Create",
+          "q": "What value that nobody offers can you invent?"
+        }
+      ]
     }
   },
   "pricing": {
@@ -230,7 +325,11 @@
     "rights": "© 2026 Decidia",
     "privacy": "Privacy",
     "legal": "Legal notice",
-    "terms": "Terms"
+    "terms": "Terms",
+    "tagline": "The AI that dares to say no.",
+    "product": "Product",
+    "legalTitle": "Legal",
+    "example": "Sample report"
   },
   "auth": {
     "title": "Log in",
@@ -242,7 +341,22 @@
     "or": "or",
     "error": "Could not send the link. Check the address and try again.",
     "consent": "By continuing, you accept the terms and the privacy policy.",
-    "notConfigured": "Authentication is not configured on this environment yet."
+    "notConfigured": "Authentication is not configured on this environment yet.",
+    "benefitsTitle": "What your account unlocks",
+    "benefits": [
+      {
+        "t": "Your decision journal",
+        "d": "Every analysis is kept, with its assumptions and its outcome."
+      },
+      {
+        "t": "D+14 and D+30 follow-up",
+        "d": "Decidia checks in to ask whether it worked, then adjusts your plan."
+      },
+      {
+        "t": "PDF export",
+        "d": "A clean report to share with a partner or a banker (Pro)."
+      }
+    ]
   },
   "new": {
     "title": "Which decision is holding you back?",
@@ -285,7 +399,15 @@
     "progressTitle": "Analysis in progress",
     "progressSub": "It takes about a minute. You can keep this tab open.",
     "failed": "The analysis was interrupted. Your answers are saved.",
-    "notFound": "This analysis could not be found."
+    "notFound": "This analysis could not be found.",
+    "useExample": "Use this example",
+    "hint": "Press Enter to continue",
+    "live": "Found so far",
+    "optionsFound": "{n} options assessed",
+    "objectionFound": "Devil's advocate objection found",
+    "riskFound": "{n} risks quantified",
+    "elapsed": "Elapsed",
+    "back": "Previous question"
   },
   "report": {
     "report": "Report",
@@ -334,7 +456,23 @@
     "exportPdf": "Export as PDF",
     "saveJournal": "Save to my journal",
     "markDecided": "I've decided",
-    "ofMax": "out of 100"
+    "ofMax": "out of 100",
+    "toc": {
+      "label": "Report contents",
+      "verdict": "Verdict",
+      "models": "Models",
+      "options": "Options",
+      "errc": "Blue Ocean",
+      "devil": "Devil's advocate",
+      "reco": "Recommendation",
+      "plan": "Plan",
+      "risks": "Risks"
+    },
+    "level": {
+      "high": "High confidence",
+      "mid": "Medium confidence",
+      "low": "Low confidence"
+    }
   },
   "wall": {
     "signupTitle": "Keep this report.",
@@ -372,7 +510,14 @@
     "confidence": "Confidence",
     "created": "Created on",
     "open": "Open",
-    "followup": "Check in"
+    "followup": "Check in",
+    "stats": {
+      "total": "Decisions analysed",
+      "success": "Successful",
+      "avg": "Average confidence",
+      "none": "—"
+    },
+    "nextStep": "Next: check in on this decision"
   },
   "followup": {
     "title": "Did your decision work?",
@@ -409,7 +554,13 @@
     "deleteConfirm": "Yes, delete permanently",
     "saved": "Saved.",
     "checkoutSuccess": "Thank you. Your Pro subscription is being activated.",
-    "founder": "Founder"
+    "founder": "Founder",
+    "proTitle": "You're on Pro",
+    "proText": "Unlimited analyses, journal, PDF export and D+14 / D+30 follow-up.",
+    "freeTitle": "Free plan",
+    "freeText": "Your first analysis is free. Go Pro for the next ones, PDF and follow-up.",
+    "account": "Account",
+    "email": "Email"
   },
   "legal": {
     "privacyTitle": "Privacy policy",

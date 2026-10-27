@@ -164,6 +164,101 @@
       "done": "C'est noté. Ta place de fondateur est réservée.",
       "already": "Tu es déjà sur la liste. Rien à refaire.",
       "error": "L'inscription a échoué. Vérifie ton e-mail et réessaie."
+    },
+    "points": [
+      "Sans inscription",
+      "Rapport en moins de 3 minutes",
+      "Aucune carte bancaire"
+    ],
+    "demoProfile": "Profil entrepreneur",
+    "demoMeta": "3 options · 5 modèles · 3 risques",
+    "demoDevil": "Avocat du diable",
+    "demoDevilText": "Des précommandes d'amis ne prouvent rien : ils achètent par gentillesse.",
+    "models": {
+      "eyebrow": "La méthode",
+      "title": "Treize modèles mentaux. Trois à cinq choisis pour ton cas.",
+      "sub": "Decidia n'applique pas toute la boîte à outils : il sélectionne les modèles qui éclairent vraiment ta décision, et te dit lesquels il a utilisés et pourquoi.",
+      "items": [
+        {
+          "n": "Premiers principes",
+          "d": "Décomposer jusqu'aux faits de base, puis reconstruire sans copier les habitudes."
+        },
+        {
+          "n": "Inversion",
+          "d": "Chercher ce qui ferait échouer le projet, pour l'éviter."
+        },
+        {
+          "n": "Pensée de second ordre",
+          "d": "Regarder les conséquences des conséquences, pas seulement l'effet immédiat."
+        },
+        {
+          "n": "Coût d'opportunité",
+          "d": "Mesurer ce à quoi tu renonces en choisissant cette option."
+        },
+        {
+          "n": "Cercle de compétence",
+          "d": "Rester là où tu sais vraiment, et savoir où ça s'arrête."
+        },
+        {
+          "n": "Paris asymétriques",
+          "d": "Peu à perdre, beaucoup à gagner : privilégier ces paris."
+        },
+        {
+          "n": "Minimisation du regret",
+          "d": "Choisir ce que tu regretteras le moins dans dix ans."
+        },
+        {
+          "n": "Pareto",
+          "d": "20 % des actions produisent 80 % du résultat : trouver lesquelles."
+        },
+        {
+          "n": "Effet de levier",
+          "d": "Ce qui multiplie ton effort : outils, personnes, capital, audience."
+        },
+        {
+          "n": "La carte n'est pas le territoire",
+          "d": "Ton modèle de la situation n'est pas la situation."
+        },
+        {
+          "n": "Biais de confirmation",
+          "d": "On cherche surtout ce qui confirme ce qu'on croit déjà."
+        },
+        {
+          "n": "Biais du survivant",
+          "d": "On ne voit que ceux qui ont réussi, jamais ceux qui ont échoué."
+        },
+        {
+          "n": "Rasoir de Hanlon",
+          "d": "Ne pas attribuer à la malveillance ce que l'erreur suffit à expliquer."
+        }
+      ],
+      "tile": {
+        "t": "Decidia en choisit trois à cinq pour toi.",
+        "cta": "Voir comment, sur un vrai rapport"
+      }
+    },
+    "errc": {
+      "eyebrow": "Stratégie Océan Bleu",
+      "title": "Arrête de te battre dans l'océan rouge.",
+      "sub": "Pour les entrepreneurs, Decidia applique la grille ERRC de la stratégie Océan Bleu : plutôt que de copier ce qui existe, tu choisis ce que tu supprimes, réduis, augmentes et crées pour sortir de la comparaison.",
+      "cells": [
+        {
+          "k": "Éliminer",
+          "q": "Quels critères que le secteur tient pour acquis peux-tu supprimer ?"
+        },
+        {
+          "k": "Réduire",
+          "q": "Lesquels peux-tu ramener bien en dessous de la norme ?"
+        },
+        {
+          "k": "Augmenter",
+          "q": "Lesquels peux-tu pousser bien au-dessus de la norme ?"
+        },
+        {
+          "k": "Créer",
+          "q": "Quelle valeur que personne ne propose peux-tu inventer ?"
+        }
+      ]
     }
   },
   "pricing": {
@@ -230,7 +325,11 @@
     "rights": "© 2026 Decidia",
     "privacy": "Confidentialité",
     "legal": "Mentions légales",
-    "terms": "Conditions"
+    "terms": "Conditions",
+    "tagline": "L'IA qui ose te dire non.",
+    "product": "Produit",
+    "legalTitle": "Légal",
+    "example": "Exemple de rapport"
   },
   "auth": {
     "title": "Connexion",
@@ -242,7 +341,22 @@
     "or": "ou",
     "error": "Impossible d'envoyer le lien. Vérifie l'adresse et réessaie.",
     "consent": "En continuant, tu acceptes les conditions et la politique de confidentialité.",
-    "notConfigured": "L'authentification n'est pas encore configurée sur cet environnement."
+    "notConfigured": "L'authentification n'est pas encore configurée sur cet environnement.",
+    "benefitsTitle": "Ce que ton compte débloque",
+    "benefits": [
+      {
+        "t": "Ton journal de décisions",
+        "d": "Chaque analyse est gardée, avec ses hypothèses et son résultat."
+      },
+      {
+        "t": "Le suivi à J+14 et J+30",
+        "d": "Decidia te relance pour savoir si ça a marché, puis ajuste ton plan."
+      },
+      {
+        "t": "L'export PDF",
+        "d": "Un rapport propre à partager avec un associé ou un banquier (Pro)."
+      }
+    ]
   },
   "new": {
     "title": "Quelle décision t'empêche d'avancer ?",
@@ -285,7 +399,15 @@
     "progressTitle": "Analyse en cours",
     "progressSub": "Ça prend environ une minute. Tu peux garder cet onglet ouvert.",
     "failed": "L'analyse a été interrompue. Tes réponses sont conservées.",
-    "notFound": "Cette analyse est introuvable."
+    "notFound": "Cette analyse est introuvable.",
+    "useExample": "Utiliser cet exemple",
+    "hint": "Entrée pour continuer",
+    "live": "Déjà identifié",
+    "optionsFound": "{n} options évaluées",
+    "objectionFound": "Objection de l'avocat du diable trouvée",
+    "riskFound": "{n} risques chiffrés",
+    "elapsed": "Temps écoulé",
+    "back": "Question précédente"
   },
   "report": {
     "report": "Rapport",
@@ -334,7 +456,23 @@
     "exportPdf": "Exporter en PDF",
     "saveJournal": "Enregistrer dans mon journal",
     "markDecided": "J'ai décidé",
-    "ofMax": "sur 100"
+    "ofMax": "sur 100",
+    "toc": {
+      "label": "Sommaire du rapport",
+      "verdict": "Verdict",
+      "models": "Modèles",
+      "options": "Options",
+      "errc": "Océan Bleu",
+      "devil": "Avocat du diable",
+      "reco": "Recommandation",
+      "plan": "Plan",
+      "risks": "Risques"
+    },
+    "level": {
+      "high": "Confiance élevée",
+      "mid": "Confiance moyenne",
+      "low": "Confiance faible"
+    }
   },
   "wall": {
     "signupTitle": "Garde ce rapport.",
@@ -372,7 +510,14 @@
     "confidence": "Confiance",
     "created": "Créée le",
     "open": "Ouvrir",
-    "followup": "Faire le point"
+    "followup": "Faire le point",
+    "stats": {
+      "total": "Décisions analysées",
+      "success": "Réussies",
+      "avg": "Confiance moyenne",
+      "none": "—"
+    },
+    "nextStep": "Prochain point : faire le bilan de cette décision"
   },
   "followup": {
     "title": "Ta décision a-t-elle marché ?",
@@ -409,7 +554,13 @@
     "deleteConfirm": "Oui, supprimer définitivement",
     "saved": "Enregistré.",
     "checkoutSuccess": "Merci. Ton abonnement Pro est en cours d'activation.",
-    "founder": "Fondateur"
+    "founder": "Fondateur",
+    "proTitle": "Tu es Pro",
+    "proText": "Analyses illimitées, journal, export PDF et suivi J+14 / J+30.",
+    "freeTitle": "Plan gratuit",
+    "freeText": "Ta première analyse est offerte. Passe à Pro pour les suivantes, le PDF et le suivi.",
+    "account": "Compte",
+    "email": "E-mail"
   },
   "legal": {
     "privacyTitle": "Politique de confidentialité",

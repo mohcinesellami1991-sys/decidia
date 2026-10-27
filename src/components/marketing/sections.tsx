@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -17,47 +17,97 @@ const SectionTitle = ({ children, className }: { children: React.ReactNode; clas
 );
 
 /* ---------- Hero ---------- */
+const rise = (delay: number) => ({ animationDelay: `${delay}s` });
+const RISE = "motion-safe:animate-[hero-rise_0.7s_cubic-bezier(0.22,1,0.36,1)_both]";
+
 export async function Hero() {
   const t = await getTranslations("landing");
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      <div className="grid items-center gap-12 pb-10 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pt-20">
-        <div>
-          <Eyebrow>{t("eyebrow")}</Eyebrow>
-          <h1 className="mt-4 font-serif text-[clamp(3rem,7vw,5.5rem)] leading-[0.98] tracking-tight">
-            {t("h1a")} <span className="text-ocean italic">{t("h1b")}</span>
-          </h1>
-          <p className="mt-6 max-w-[34em] text-lg leading-relaxed text-muted">{t("lead")}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button asChild size="lg"><Link href="/new">{t("cta")} →</Link></Button>
-            <Button asChild size="lg" variant="secondary"><Link href="/exemple">{t("ctaSecondary")}</Link></Button>
-          </div>
-          <p className="mt-4 text-[13px] text-muted-2">{t("small")}</p>
-        </div>
-
-        <div className="rounded-2xl border border-border bg-surface p-5 shadow-[0_30px_80px_-30px_rgba(47,107,255,0.35)]" aria-label={t("demoLabel")}>
-          <Eyebrow>{t("demoLabel")}</Eyebrow>
-          <p className="mt-3 min-h-[4.5em] text-[15px]">
-            {t("demoText")}
-            <span aria-hidden className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[3px] bg-[var(--ocean-to)] motion-safe:animate-[blink_1.1s_steps(1)_infinite]" />
-          </p>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {(t.raw("demoChips") as string[]).map((c) => (
-              <li key={c} className="rounded-full border border-border bg-surface-2 px-3 py-1 text-[12.5px] text-muted">{c}</li>
-            ))}
-          </ul>
-          <div className="mt-4 grid gap-2.5 border-t border-border pt-4 text-sm text-muted">
-            <p className="flex gap-3"><b className="pt-0.5 font-mono text-xs tracking-widest text-amber">{t("demoNo")}</b>{t("demoNoText")}</p>
-            <p className="flex gap-3"><b className="pt-0.5 font-mono text-xs tracking-widest text-primary">{t("demoInstead")}</b>{t("demoInsteadText")}</p>
-          </div>
-        </div>
+    <div className="relative isolate overflow-hidden">
+      {/* Atmosphère : halo bleu en haut à droite et quadrillage fin qui s'estompe */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(55%_60%_at_72%_0%,var(--glow),transparent_72%)]" />
+        <div className="absolute inset-x-0 top-0 h-[560px] bg-[linear-gradient(var(--hairline)_1px,transparent_1px),linear-gradient(90deg,var(--hairline)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(65%_75%_at_50%_0%,black,transparent)]" />
       </div>
 
-      <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-t border-border py-5 text-[13px] text-muted-2">
-        {(t.raw("proof") as { k: string; v: string }[]).map((p) => (
-          <li key={p.k}><b className="font-mono font-medium text-foreground">{p.k}</b> {p.v}</li>
-        ))}
-      </ul>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid items-center gap-14 pb-12 pt-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 lg:pb-16 lg:pt-24">
+          <div>
+            <p className={cn("inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3.5 py-1.5 text-[12.5px] text-muted backdrop-blur", RISE)} style={rise(0)}>
+              <span aria-hidden className="size-1.5 rounded-full bg-ocean" />
+              {t("eyebrow")}
+            </p>
+            <h1 className={cn("mt-6 font-serif text-[clamp(3rem,6.6vw,5.4rem)] leading-[0.98] tracking-tight", RISE)} style={rise(0.08)}>
+              {t("h1a")} <span className="whitespace-nowrap text-ocean italic">{t("h1b")}</span>
+            </h1>
+            <p className={cn("mt-6 max-w-[33em] text-lg leading-relaxed text-muted", RISE)} style={rise(0.18)}>{t("lead")}</p>
+            <div className={cn("mt-9 flex flex-wrap items-center gap-x-6 gap-y-4", RISE)} style={rise(0.28)}>
+              <Button asChild size="lg"><Link href="/new">{t("cta")} <ArrowRight /></Link></Button>
+              <Link href="/exemple" className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground underline-offset-4 hover:underline">
+                {t("ctaSecondary")}
+                <ArrowRight className="size-4 transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden />
+              </Link>
+            </div>
+            <ul className={cn("mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-muted-2", RISE)} style={rise(0.36)}>
+              {(t.raw("points") as string[]).map((p) => (
+                <li key={p} className="flex items-center gap-1.5"><Check className="size-3.5 text-accent-cyan" strokeWidth={3} aria-hidden />{p}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative lg:pb-24 lg:pl-4">
+            <div className={cn("relative rounded-3xl border border-border bg-surface p-5 shadow-[var(--shadow-pop)] sm:p-6", RISE)} style={rise(0.2)} aria-label={t("demoLabel")}>
+              <div className="flex items-center justify-between">
+                <Eyebrow>{t("demoLabel")}</Eyebrow>
+                <span className="rounded-full border border-border bg-background px-2.5 py-0.5 text-[11px] text-muted">{t("demoProfile")}</span>
+              </div>
+              <p className="mt-3 min-h-[4.6em] text-[15.5px] leading-relaxed">
+                {t("demoText")}
+                <span aria-hidden className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[3px] bg-[var(--ocean-to)] motion-safe:animate-[blink_1.1s_steps(1)_infinite]" />
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {(t.raw("demoChips") as string[]).map((c, i) => (
+                  <li key={c} className={cn("rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[12.5px] text-primary", RISE)} style={rise(0.7 + i * 0.12)}>{c}</li>
+                ))}
+              </ul>
+
+              <div className="mt-5 grid gap-3 rounded-2xl border border-border bg-background p-4 text-sm">
+                <p className={cn("flex gap-3 border-l-2 border-amber pl-3 text-muted", RISE)} style={rise(1.4)}>
+                  <b className="shrink-0 pt-0.5 font-mono text-xs tracking-widest text-amber">{t("demoNo")}</b>
+                  <span>{t("demoNoText")}</span>
+                </p>
+                <p className={cn("flex gap-3 border-l-2 border-primary pl-3 text-muted", RISE)} style={rise(1.9)}>
+                  <b className="shrink-0 pt-0.5 font-mono text-xs tracking-widest text-primary">{t("demoInstead")}</b>
+                  <span>{t("demoInsteadText")}</span>
+                </p>
+                <div className={cn("pt-1", RISE)} style={rise(2.4)}>
+                  <div className="flex items-baseline justify-between text-xs text-muted-2">
+                    <span className="font-mono uppercase tracking-widest">{t("demoMeta")}</span>
+                    <span className="font-mono text-foreground tabular-nums">64 / 100</span>
+                  </div>
+                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2" aria-hidden>
+                    <div className="h-full w-[64%] rounded-full bg-ocean motion-safe:animate-[meter-fill_1.2s_cubic-bezier(0.22,1,0.36,1)_2.5s_both]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={cn("mt-4 rounded-2xl border border-amber-line bg-amber-soft p-4 text-[13px] shadow-[var(--shadow-card)] lg:absolute lg:bottom-2 lg:left-0 lg:mt-0 lg:w-[280px]", RISE)} style={rise(2.9)} aria-hidden>
+              <p className="font-mono text-[10.5px] uppercase tracking-widest text-amber">⚠ {t("demoDevil")}</p>
+              <p className="mt-1.5 leading-snug text-muted">{t("demoDevilText")}</p>
+            </div>
+          </div>
+        </div>
+
+        <dl className="grid grid-cols-2 border-t border-border py-2 sm:grid-cols-4">
+          {(t.raw("proof") as { k: string; v: string }[]).map((p, i) => (
+            <div key={p.k} className={cn("px-1 py-5 sm:px-6", i === 0 && "sm:pl-0", i > 0 && "sm:border-l sm:border-border", i % 2 === 1 && "border-l border-border sm:border-l")}>
+              <dt className="font-mono text-xl font-medium tabular-nums text-foreground sm:text-2xl">{p.k}</dt>
+              <dd className="mt-1 text-[13px] text-muted-2">{p.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </div>
   );
 }
@@ -178,6 +228,61 @@ export async function DiffSection() {
   );
 }
 
+/* ---------- Les 13 modèles mentaux ---------- */
+export async function ModelsSection() {
+  const t = await getTranslations("landing.models");
+  const items = t.raw("items") as { n: string; d: string }[];
+  return (
+    <section id="models" className="scroll-mt-20 pb-20 lg:pb-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <Eyebrow>{t("eyebrow")}</Eyebrow>
+        <SectionTitle>{t("title")}</SectionTitle>
+        <p className="mt-4 max-w-[42em] text-muted">{t("sub")}</p>
+        <ul className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((m) => (
+            <li key={m.n} className="group bg-surface p-5 transition-colors duration-150 hover:bg-surface-2">
+              <h3 className="font-serif text-2xl leading-tight">{m.n}</h3>
+              <p className="mt-2 text-[14px] leading-relaxed text-muted">{m.d}</p>
+            </li>
+          ))}
+          <li className="flex flex-col justify-between gap-4 bg-surface p-5 sm:col-span-1 lg:col-span-2">
+            <h3 className="font-serif text-3xl leading-tight text-ocean">{t("tile.t")}</h3>
+            <Link href="/exemple" className="group inline-flex w-fit items-center gap-1.5 text-[15px] font-medium hover:underline">
+              {t("tile.cta")} <ArrowRight className="size-4 transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Grille Océan Bleu ---------- */
+export async function ErrcSection() {
+  const t = await getTranslations("landing.errc");
+  const cells = t.raw("cells") as { k: string; q: string }[];
+  const tones = ["text-danger", "text-muted", "text-primary", "text-accent-cyan"];
+  return (
+    <section className="pb-20 lg:pb-28">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+        <div>
+          <Eyebrow>{t("eyebrow")}</Eyebrow>
+          <SectionTitle>{t("title")}</SectionTitle>
+          <p className="mt-4 max-w-[34em] leading-relaxed text-muted">{t("sub")}</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {cells.map((c, i) => (
+            <div key={c.k} className="rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow-card)]">
+              <p className={cn("font-mono text-xs font-medium uppercase tracking-widest", tones[i])}>{c.k}</p>
+              <p className="mt-2 font-serif text-2xl leading-snug">{c.q}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Tarifs ---------- */
 export async function PricingSection({ founderOpen = true }: { founderOpen?: boolean }) {
   const t = await getTranslations("pricing");
@@ -193,7 +298,7 @@ export async function PricingSection({ founderOpen = true }: { founderOpen?: boo
             <h3 className="font-serif text-3xl">{t("free.name")}</h3>
             <p className="font-serif text-6xl leading-none">{t("free.price")}</p>
             <ul className="grid gap-2.5 text-[14.5px] text-muted">
-              {free.map((f) => <li key={f} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-[var(--ocean-to)]" />{f}</li>)}
+              {free.map((f) => <li key={f} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-accent-cyan" />{f}</li>)}
             </ul>
             <Button asChild variant="secondary" className="mt-auto"><Link href="/new">{t("free.cta")}</Link></Button>
           </div>
@@ -203,7 +308,7 @@ export async function PricingSection({ founderOpen = true }: { founderOpen?: boo
             <p className="font-serif text-6xl leading-none">{PLANS.pro.price} <small className="font-sans text-sm text-muted-2">{t("pro.per")}</small></p>
             {founderOpen && <p className="text-sm text-primary">{t("pro.founder")}</p>}
             <ul className="grid gap-2.5 text-[14.5px] text-muted">
-              {pro.map((f) => <li key={f} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-[var(--ocean-to)]" />{f}</li>)}
+              {pro.map((f) => <li key={f} className="flex gap-2.5"><Check className="mt-0.5 size-4 shrink-0 text-accent-cyan" />{f}</li>)}
             </ul>
             <Button asChild className="mt-auto"><Link href="/login?next=/settings">{t("pro.cta")}</Link></Button>
           </div>
