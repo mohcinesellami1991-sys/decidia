@@ -12,6 +12,8 @@ cp .env.example .env.local      # puis renseigner les variables
 npm run dev                      # http://localhost:3000
 ```
 
+Variables obligatoires en production : `NEXT_PUBLIC_SUPABASE_URL` (adresse `https://…supabase.co`), `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY`, `ANON_SECRET` (32 caractères minimum, jamais la clé service_role) et `CRON_SECRET`. Une configuration Supabase invalide désactive les fonctions de compte sans faire tomber le site.
+
 Sans variables, la landing, l'exemple de rapport (`/exemple`) et les pages légales fonctionnent. Le parcours d'analyse demande Supabase ; ajoute `DECIDIA_MOCK_AI=1` pour tester tout le parcours sans clé Anthropic.
 
 Banc d'essai visuel : avec `ENABLE_PREVIEW=1`, les écrans connectés (journal, réglages, suivi, questions, progression, rapport, murs, états) s'affichent avec des données fictives sur `/preview/<écran>` (par exemple `/preview/journal`). Désactivé en production par défaut.

@@ -18,9 +18,13 @@ export const MODELS = {
 };
 
 /** Tarifs en $ par million de tokens, surchargeables par variables d'environnement. */
+const num = (v: string | undefined, fallback: number) => {
+  const n = Number(v);
+  return v !== undefined && v.trim() !== "" && Number.isFinite(n) && n >= 0 ? n : fallback;
+};
 const PRICE = {
-  light: { in: Number(process.env.PRICE_LIGHT_IN ?? 1), out: Number(process.env.PRICE_LIGHT_OUT ?? 5) },
-  analysis: { in: Number(process.env.PRICE_ANALYSIS_IN ?? 3), out: Number(process.env.PRICE_ANALYSIS_OUT ?? 15) },
+  light: { in: num(process.env.PRICE_LIGHT_IN, 1), out: num(process.env.PRICE_LIGHT_OUT, 5) },
+  analysis: { in: num(process.env.PRICE_ANALYSIS_IN, 3), out: num(process.env.PRICE_ANALYSIS_OUT, 15) },
 };
 
 export interface Usage {

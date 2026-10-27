@@ -5,9 +5,11 @@ const COOKIE = "decidia_anon";
 const MAX_AGE = 60 * 60 * 24 * 90;
 
 function secret() {
-  const s = process.env.ANON_SECRET ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!s) throw new Error("ANON_SECRET manquant");
-  return s;
+  const s = process.env.ANON_SECRET;
+  if (s && s.length >= 32) return s;
+  // On ne réutilise jamais la clé service_role pour signer un cookie : en production, ANON_SECRET est obligatoire.
+  if (process.env.NODE_ENV !== "production") return "decidia-dev-only-secret-not-for-production";
+  throw new Error("ANON_SECRET manquant ou trop court (32 caractères minimum)");
 }
 
 const sign = (id: string) => createHmac("sha256", secret()).update(id).digest("base64url");
