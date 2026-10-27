@@ -4,7 +4,7 @@ import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState } from "@/components/shared/states";
-import { StaticGauge } from "@/components/report/parts";
+import { StaticGauge } from "@/components/report/static-gauge";
 import { cn } from "@/lib/utils";
 
 export type JournalRow = {

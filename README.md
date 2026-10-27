@@ -14,6 +14,8 @@ npm run dev                      # http://localhost:3000
 
 Sans variables, la landing, l'exemple de rapport (`/exemple`) et les pages légales fonctionnent. Le parcours d'analyse demande Supabase ; ajoute `DECIDIA_MOCK_AI=1` pour tester tout le parcours sans clé Anthropic.
 
+Banc d'essai visuel : avec `ENABLE_PREVIEW=1`, les écrans connectés (journal, réglages, suivi, questions, progression, rapport, murs, états) s'affichent avec des données fictives sur `/preview/<écran>` (par exemple `/preview/journal`). Désactivé en production par défaut.
+
 Vérifications : `npm run check` (typecheck + lint + build) puis `npm run test:e2e` (Playwright, parcours publics + accessibilité axe WCAG AA, bureau et mobile).
 
 ## Déploiement

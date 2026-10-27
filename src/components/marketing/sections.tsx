@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { StaticGauge } from "@/components/report/parts";
+import { StaticGauge } from "@/components/report/static-gauge";
 import { getSample } from "@/lib/sample-report";
 import { getLocale } from "next-intl/server";
 import { PLANS } from "@/lib/stripe/plans";
@@ -37,10 +37,10 @@ export async function Hero() {
               <span aria-hidden className="size-1.5 rounded-full bg-ocean" />
               {t("eyebrow")}
             </p>
-            <h1 className={cn("mt-6 font-serif text-[clamp(3rem,6.6vw,5.4rem)] leading-[0.98] tracking-tight", RISE)} style={rise(0.08)}>
+            <h1 className="mt-6 font-serif text-[clamp(3rem,6.6vw,5.4rem)] leading-[0.98] tracking-tight">
               {t("h1a")} <span className="whitespace-nowrap text-ocean italic">{t("h1b")}</span>
             </h1>
-            <p className={cn("mt-6 max-w-[33em] text-lg leading-relaxed text-muted", RISE)} style={rise(0.18)}>{t("lead")}</p>
+            <p className="mt-6 max-w-[33em] text-lg leading-relaxed text-muted">{t("lead")}</p>
             <div className={cn("mt-9 flex flex-wrap items-center gap-x-6 gap-y-4", RISE)} style={rise(0.28)}>
               <Button asChild size="lg"><Link href="/new">{t("cta")} <ArrowRight /></Link></Button>
               <Link href="/exemple" className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-foreground underline-offset-4 hover:underline">
